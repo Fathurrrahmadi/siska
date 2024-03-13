@@ -1,0 +1,5 @@
+.heading-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Pusatkan vertikal jika diperlukan */
+}

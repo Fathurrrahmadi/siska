@@ -1,0 +1,28 @@
+/* Adjustments for the second fixed column */
+.dt-fixed-second {
+  position: sticky;
+  left: [WidthOfFirstColumn]; /* You'll need to set this based on the actual width of the first column */
+  background-color: #FFF; /* Or any color that matches your table's background */
+  z-index: 5; /* Same z-index to ensure it's on top */
+}
+
+.dt-fixed-second th, .dt-fixed-second td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #f2f2f2; /* Slightly different background to distinguish */
+  font-weight: bold;
+}
+
+/* You might need to adjust other elements to ensure they don't overlap */
+.dataTables_wrapper .dataTables_scrollHeadInner {
+  background-color: #FFF; /* Ensure this matches your design */
+}
+
+/* Additional custom styles */
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Remember to adjust the left property of .dt-fixed-second to ensure it does not overlap with the first column */
