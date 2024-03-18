@@ -7,16 +7,21 @@
     <title>Table Penanganan Gangguan</title>
 
 
-
     <link rel="shortcut icon" href="./assets/compiled/svg/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAiCAYAAADRcLDBAAAEs2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMzIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzQiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIzMyIKICAgdGlmZjpJbWFnZUxlbmd0aD0iMzQiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249Ijk2LjAiCiAgIHRpZmY6WVJlc29sdXRpb249Ijk2LjAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJwcm9kdWNlZCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWZmaW5pdHkgRGVzaWduZXIgMS4xMC4xIgogICAgICBzdEV2dDp3aGVuPSIyMDIyLTAzLTMxVDEwOjUwOjIzKzAyOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz5V57uAAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9maORHo1hYKC9hISNGTWwsRn4VFmOUX5uZZ36oeTOv954kW2WrKLHxa8FfwFZZK0WkZClrYoOe87ypmWTO7dzzud97z+nec8ETzaiaWd4NWtYyIiNhZWZ2TvE946WZSjqoj6mmPjE1HKWkfdxR5sSbgFOr9Ll/rXoxYapQVik8oOqGJTwqPL5i6Q5vCzeo6dii8KlwpyEXFL519LjLLw6nXP5y2IhGBsFTJ6ykijhexGra0ITl5bRqmWU1fx/nJTWJ7PSUxBbxJkwijBBGYYwhBgnRQ7/MIQIE6ZIVJfK7f/MnyUmuKrPOKgZLpEhj0SnqslRPSEyKnpCRYdXp/9++msneoFu9JgwVT7b91ga+LfjetO3PQ9v+PgLvI1xkC/m5A+h7F32zoLXug38dzi4LWnwHzjeg8UGPGbFfySvuSSbh9QRqZ6H+Gqrm3Z7l9zm+h+iafNUV7O5Bu5z3L/wAdthn7QIme0YAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJTSURBVFiF7Zi9axRBGIefEw2IdxFBRQsLWUTBaywSK4ubdSGVIY1Y6HZql8ZKCGIqwX/AYLmCgVQKfiDn7jZeEQMWfsSAHAiKqPiB5mIgELWYOW5vzc3O7niHhT/YZvY37/swM/vOzJbIqVq9uQ04CYwCI8AhYAlYAB4Dc7HnrOSJWcoJcBS4ARzQ2F4BZ2LPmTeNuykHwEWgkQGAet9QfiMZjUSt3hwD7psGTWgs9pwH1hC1enMYeA7sKwDxBqjGnvNdZzKZjqmCAKh+U1kmEwi3IEBbIsugnY5avTkEtIAtFhBrQCX2nLVehqyRqFoCAAwBh3WGLAhbgCRIYYinwLolwLqKUwwi9pxV4KUlxKKKUwxC6ZElRCPLYAJxGfhSEOCz6m8HEXvOB2CyIMSk6m8HoXQTmMkJcA2YNTHm3congOvATo3tE3A29pxbpnFzQSiQPcB55IFmFNgFfEQeahaAGZMpsIJIAZWAHcDX2HN+2cT6r39GxmvC9aPNwH5gO1BOPFuBVWAZue0vA9+A12EgjPadnhCuH1WAE8ivYAQ4ohKaagV4gvxi5oG7YSA2vApsCOH60WngKrA3R9IsvQUuhIGY00K4flQG7gHH/mLytB4C42EgfrQb0mV7us8AAMeBS8mGNMR4nwHamtBB7B4QRNdaS0M8GxDEog7iyoAguvJ0QYSBuAOcAt71Kfl7wA8DcTvZ2KtOlJEr+ByyQtqqhTyHTIeB+ONeqi3brh+VgIN0fohUgWGggizZFTplu12yW8iy/YLOGWMpDMTPXnl+Az9vj2HERYqPAAAAAElFTkSuQmCC" type="image/png">
 
-<link rel="stylesheet" href="assets/extensions/simple-datatables/style.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <!-- FixedColumns CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.1.0/css/fixedColumns.dataTables.min.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.css"> -->
 
-  <link rel="stylesheet" href="./assets/compiled/css/table-datatable.css">
+    <!-- <link rel="stylesheet" href="./assets/compiled/css/table-edit.css"> -->
   <link rel="stylesheet" href="./assets/compiled/css/app.css">
   <link rel="stylesheet" href="./assets/compiled/css/app-dark.css">
+
 </head>
 
 <body>
@@ -209,94 +214,157 @@
                 </a>
             </header>
 
-            <div class="page-heading">
-    <div class="page-title">
-        <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Penertiban SFR</h3>
-                <p class="text-subtitle text-muted">List Penertiban SFR(Spektrum Frequensi Radio)</p>
-            </div>
-            <div class="col-12 col-md-6 order-md-2 order-first">
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Penertiban SFR</li>
-                    </ol>
-                </nav>
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>Penanganan Gangguan</h3>
+                    <p class="text-subtitle text-muted">List Penanganan Gangguan</p>
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Penanganan Gangguan</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
         </div>
-    </div>
 
     <!-- Basic Tables start -->
-    <section class="section">
-        <div class="card">
-            <div class="card-header">
-            <a href="testinput2.html" class="btn btn-primary">Tambah Data Baru SINGLE</a>
-            <a href="testinput.html" class="btn btn-primary">Tambah Data Baru MULTIPLE</a>
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                <a href="testinput2.html" class="btn btn-primary">Tambah Data Baru</a>
+                
 
-            </div>
-            <div class="card-body">
+                </div>
+                <div class="card-body">
 
 
-                <div class="datatable_wrapper">
+                    <div class="datatable_wrapper">
 
-                    <table class="table table-striped " id="sfrTable" widht="100%">
-                    </div>
+                        <table class="table table-striped " id="tablePG" widht="100%">
+                        </div>
                         <thead>
                             <tr>
-                                    <th>Id SFR</th>
-                                    <th>NAMA PENGGUNA</th>
-                                    <th>FREKUENSI(MHz)</th>
-                                    <th>DINAS</th>
-                                    <th>SUBSERVICE</th>
-                                    <th>LOKASI</th>
-                                    <th>PROVINSI</th>
-                                    <th>KAB/KOTA</th>
-                                    <th>JENIS PELANGGARAN</th>
-                                    <th>TINDAKAN</th>
-                                    <th>STATUS</th>
-                                    <th>TGL OPERASI STASIUN</th>
-                                    <th>NO ISR SETELAH PENINDAKAN</th>
-                                    <th>NO SURAT PENINDAKAN</th>
-                                    <th>TANGGAL TINDAKAN</th>
-                                    <th>KETENRANGAN</th>
-                                    <th>ACTIONS</th>
+                                <th>No Tiket</th>
+                                <th>No Surat Tugas</th>
+                                <th>Tgl Surat Tugas</th>
+                                <th>Pihak Pelapor</th>
+                                <th>Pihak Pengganggu</th>
+                                <th>Frekuensi Terukur (MHz)</th>
+                                <th>Koordinat</th>
+                                <th>Alamat</th>
+                                <th>Sumber Gangguan</th>
+                                <th>Tindakan</th>
+                                <th>Keterangan</th>
+                                <th>Tanggal Penanganan Gangguan</th>
+                                <th>Actions</th>
                             </tr>
-                         </thead>
-                    </table>
+                        </thead>
+                        </table>
 
 
 
-                    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="updateModalLabel">Update Data</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="updateModalLabel">Update Data</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <div class="modal-body">
+                                    <form id="updateForm">
+                                    
+                                      
+                                    </form>
                                 </div>
-                            <div class="modal-body">
-                                <form id="updateForm">
-                                 
-                                    <button type="submit" class="btn btn-primary">Update</button>
-                                </form>
+                                
                             </div>
-                            
                         </div>
                     </div>
+                
                 </div>
-              
             </div>
-        </div>
 
 
-    </section>
+        </section>
 
 
 </div>
 
-            <footer>
+
+      
+
+<!-- <script src="assets/static/js/pages/datatables.js"></script>  -->
+    
+<script src="assets/compiled/js/app.js"></script>
+    
+<script src="assets/static/js/components/dark.js"></script>
+<script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<!-- jQuery -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- <script src="assets/extensions/jquery/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<!-- FixedColumns JS -->
+<script src="https://cdn.datatables.net/fixedcolumns/4.1.0/js/dataTables.fixedColumns.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    
+<script>
+   $(document).ready(function() {
+    $('#tablePG').DataTable({
+        "processing": true,
+        // "serverSide": true, pake ini kalo mau make ssp, buat script buat handle dulu
+        "ajax": {
+            "url": "connection/read_data.php?tabel=gangguan_frekuensi",
+            "type": "GET"
+        },
+        "scrollX": true,
+        "fixedColumns": {
+                leftColumns: 1,
+                rightColumns : 1
+             },
+        "columnDefs": [
+            { "width": "800px", "targets": 9 }, 
+            { "width": "300px", "targets": 8 },
+            { "width": "500px", "targets": 7 },
+            { "width": "150px", "targets": 2 },
+            { "width": "80px", "targets": 1 },
+            { "width": "150px", "targets": 3 }
+            ],
+            "pageLength": 10,
+            "pagingType": "simple",
+        "columns": [
+            { "data": "id" },
+            { "data": "no_surat_tugas" },
+            { "data": "tanggal_tugas" },
+            { "data": "pihak_pelapor" },
+            { "data": "pihak_pengganggu" },
+            { "data": "frekuensi_terukur" },
+            { "data": "koordinat" },
+            { "data": "alamat" },
+            { "data": "sumber_gangguan" },
+            { "data": "tindakan" },
+            { "data": "keterangan" },
+            { "data": "tanggal_penanganan_gangguan" },
+            {
+                "data": null,
+                "defaultContent": "<button class='btn btn-primary btn-sm btn-update'>Update</button> <button class='btn btn-danger btn-sm btn-delete'>Delete</button>"
+            }
+        ]
+        });
+    });
+
+</script>
+<footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
             <p>2023 &copy; Mazer</p>
@@ -304,18 +372,6 @@
       
     </div>
 </footer>
-        </div>
-    </div>
-    <script src="assets/static/js/components/dark.js"></script>
-    <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
-
-    <script src="assets/compiled/js/app.js"></script>
-
-
-
-<script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-<script src="assets/static/js/pages/simple-datatables.js"></script>
 
 </body>
 

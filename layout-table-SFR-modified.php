@@ -239,8 +239,8 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-            <a href="testinput2.html" class="btn btn-primary">Tambah Data Baru SINGLE</a>
-            <a href="testinput.html" class="btn btn-primary">Tambah Data Baru MULTIPLE</a>
+            <a href="testinput2.html" class="btn btn-primary">Tambah Data Baru</a>
+
 
             </div>
             <div class="card-body">
@@ -267,7 +267,7 @@
                                     <th>NO ISR SETELAH PENINDAKAN</th>
                                     <th>NO SURAT PENINDAKAN</th>
                                     <th>TANGGAL TINDAKAN</th>
-                                    <th>KETENRANGAN</th>
+                                    <th>KETERANGAN</th>
                                     <th>ACTIONS</th>
                             </tr>
                          </thead>
@@ -366,7 +366,10 @@
 
     $(document).ready(function() {
         var table = $('#sfrTable').DataTable({
-            "ajax": "connection/read_data.php",
+            "ajax": {
+            "url": "connection/read_data.php?tabel=penertiban_sfr", 
+            "type": "GET" // Gunakan "POST" jika server-side kamu dirancang untuk menerima metode POST
+            },
             "columnDefs": [{ width: 450, targets: 15 }],
             
             "heightMatch" : 50,
@@ -378,7 +381,7 @@
              "scrollX": true,
              "scrollY": true,
              "responsive": true,
-             "pageLength": 8, // Menetapkan jumlah baris per halaman
+             "pageLength": 10, // Menetapkan jumlah baris per halaman
              "pagingType": "simple",
              "columns": [
                 { "data": "idsfr" },

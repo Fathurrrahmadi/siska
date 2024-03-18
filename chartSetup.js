@@ -1,5 +1,5 @@
 
-fetch('connection/read_data.php')
+fetch('connection/read_data.php?tabel=penertiban_sfr')
 .then(response => response.json())
 .then(data => {
     const jenisPelanggaranCounts = data.data.reduce((acc, item) => {
@@ -50,7 +50,7 @@ fetch('connection/read_data.php')
 let myBarChart = null; // Inisialisasi variabel chart di luar agar bisa diakses oleh berbagai fungsi
 
 function fetchDataAndCreateChart() {
-  fetch('connection/read_data.php')
+  fetch('connection/read_data.php?tabel=penertiban_sfr')
   .then(response => response.json())
   .then(data => {
       const countsPerMonth = Array(12).fill(0); // Inisialisasi array dengan 12 elemen untuk setiap bulan

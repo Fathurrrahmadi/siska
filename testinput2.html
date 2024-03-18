@@ -149,7 +149,7 @@
 
             <li
             class="sidebar-item  ">
-            <a href="form-layout.html" class='sidebar-link'>
+            <a href="layout-penanganan-gangguan.php" class='sidebar-link'>
                 <i class="bi bi-file-earmark-medical-fill"></i>
                 <span>Penanganan Ganguan</span>
             </a>
@@ -166,7 +166,7 @@
             <ul class="submenu active ">
 
                 <li class="submenu-item active ">
-                    <a href="layout-table-SFR.html" class="submenu-link">SFR spektur frekuensi radio</a>
+                    <a href="layout-table-SFR-modified.php" class="submenu-link">SFR spektur frekuensi radio</a>
 
                 </li>
 
@@ -251,12 +251,16 @@
                                             <input type="text" id="dinas" placeholder="Broadcast" class="form-control" name="DINAS" required>
                                         </div>
                                     </div>
+                                   
                                     <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="subservice">Subservice</label>
-                                            <input type="text" id="subservice" placeholder="AM/FM" class="form-control" name="SUBSERVICE" required>
-                                        </div>
+                                        <label for="subservice">Subservice</label>
+                                        <select id="subservice" class="form-control" name="SUBSERVICE" required>
+                                            <option value="" disabled selected>Pilih Subservice</option>
+                                            <option value="AM">AM</option>
+                                            <option value="FM">FM</option>
+                                        </select>
                                     </div>
+                                    
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="lokasi">Lokasi</label>
@@ -269,17 +273,28 @@
                                             <input type="text" id="provinsi" placeholder="Provinsi" class="form-control" name="PROVINSI" required>
                                         </div>
                                     </div>
+                                   
                                     <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="kabKota">Kab/Kota</label>
-                                            <input type="text" id="kabKota" placeholder="Kab/Kota"class="form-control" name="KAB_KOTA" required>
-                                        </div>
+                                        <label for="kabKota">Kab/Kota</label>
+                                        <select id="kabKota" class="form-control" name="KAB_KOTA" required>
+                                            <option value="" disabled selected>Pilih Kab/Kota</option>
+                                            <option value="Jakarta">Jakarta</option>
+                                            <option value="Bogor">Bogor</option>
+                                            <option value="Kabupaten Bogor">Kabupaten Bogor</option>
+                                            <option value="Depok">Depok</option>
+                                            <option value="Tangerang">Tangerang</option>
+                                            <option value="Kabupaten Tanggerang">Kabupaten Tanggerang</option>
+                                            <option value="Bekasi">Bekasi</option>
+                                            <option value="Kabupaten Bekasi">Kabupaten Bekasi</option>
+                                            <option value="Kepulauan Seribu">Kepulauan Seribu</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="jenisPelanggaran">Jenis Pelanggaran</label>
                                             <select id="jenisPelanggaran" class="form-control" name="JENIS_PELANGGARAN" required>
-                                                <option value="ILEGAL">ILEGAL</option>
+                                                <option value="" disabled selected>Pilih Jenis</option>
+                                                <option value="ILEGAL">ILLEGAL</option>
                                                 <option value="LEGAL">LEGAL</option>
                                             </select>
                                         </div>
@@ -290,11 +305,14 @@
                                             <input type="text" id="tindakan" class="form-control" name="TINDAKAN" required>
                                         </div>
                                     </div>
+                                  
                                     <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="status">Status</label>
-                                            <input type="text" id="status" placeholder="Off Air/On Air" class="form-control" name="STATUS" required>
-                                        </div>
+                                        <label for="status">Status</label>
+                                        <select id="status" class="form-control" name="STATUS" required>
+                                            <option value="" disabled selected>Pilih Status</option>
+                                            <option value="Off Air">Off Air</option>
+                                            <option value="On Air">On Air</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
