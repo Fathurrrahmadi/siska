@@ -370,7 +370,17 @@
             "url": "connection/read_data.php?tabel=penertiban_sfr", 
             "type": "GET" // Gunakan "POST" jika server-side kamu dirancang untuk menerima metode POST
             },
-            "columnDefs": [{ width: 450, targets: 15 }],
+            "columnDefs": [{ width: 450, targets: 15 },
+                           { width: 350, targets: 1 },
+            ],
+            // "columnDefs": [
+            // { "width": "800px", "targets": 10 }, 
+            // { "width": "300px", "targets": 9 },
+            // { "width": "500px", "targets": 8 },
+            // { "width": "150px", "targets": 2 },
+            // { "width": "80px", "targets": 1 },
+            // { "width": "150px", "targets": 3 }
+            // ],
             
             "heightMatch" : 50,
             "fixedColumns": {
@@ -407,6 +417,7 @@
              ]
             
         });
+ 
     
         $('#sfrTable tbody').on('click', '.btn-delete', function() {
             var data = table.row($(this).parents('tr')).data();
@@ -508,7 +519,7 @@
             });
         });
 
- });
+    }); 
 </script>
 <footer>
 
