@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Penanganan Gangguan</title>
+    <title>Table FM</title>
+
 
 
     <link rel="shortcut icon" href="./assets/compiled/svg/favicon.svg" type="image/x-icon">
@@ -22,6 +24,20 @@
   <link rel="stylesheet" href="./assets/compiled/css/app.css">
   <link rel="stylesheet" href="./assets/compiled/css/app-dark.css">
 
+  <!-- <style>
+/* Tambahkan border di sisi kiri kolom pertama grup */
+/* Berikan border kanan untuk memisahkan kolom */
+.border-right {
+  border-right: 2px solid #000;
+}
+
+/* Berikan border pada grup header untuk efek kotak */
+.group-border {
+  border: 2px solid #000;
+}
+
+</style> -->
+
 </head>
 
 <body>
@@ -32,7 +48,7 @@
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-            <a href="index.html"><img src="" alt="" srcset="">SISKA</a>
+                <a href="index.html"><img src="" alt="" srcset="">SISKA</a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -114,20 +130,20 @@
             </li>
 
             <li
-                class="sidebar-item  has-sub">
+                class="sidebar-item  active has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>Pemeriksaan Stasiun Radio</span>
                 </a>
 
-                <ul class="submenu ">
+                <ul class="submenu active ">
 
                     <li class="submenu-item  ">
                         <a href="layout-default.html" class="submenu-link">Microwave Link</a>
 
                     </li>
 
-                    <li class="submenu-item  ">
+                    <li class="submenu-item active ">
                         <a href="layout-vertical-1-column.html" class="submenu-link">Pengukuran Stasiun Siaran Radio FM</a>
 
                     </li>
@@ -156,51 +172,49 @@
 
 
             <li
-            class="sidebar-item active  ">
+            class="sidebar-item  ">
             <a href="layout-penanganan-gangguan.php" class='sidebar-link'>
                 <i class="bi bi-file-earmark-medical-fill"></i>
                 <span>Penanganan Ganguan</span>
             </a>
-        </li>
+            </li>
 
 
             <li
-            class="sidebar-item  has-sub">
+            class="sidebar-item has-sub ">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-pen-fill"></i>
                 <span>Penertiban</span>
             </a>
 
-            <ul class="submenu  ">
+                <ul class="submenu  ">
 
-                <li class="submenu-item  ">
-                    <a href="layout-table-SFR-modified.php" class="submenu-link">SFR</a>
+                    <li class="submenu-item  ">
+                        <a href="layout-table-SFR-modified.php" class="submenu-link">SFR spektur frekuensi radio</a>
 
-                </li>
+                    </li>
 
-                <li class="submenu-item  ">
-                    <a href="form-editor-ckeditor.html" class="submenu-link">APT</a>
+                    <li class="submenu-item  ">
+                        <a href="form-editor-ckeditor.html" class="submenu-link">APT</a>
 
-                </li>
+                    </li>
 
-                <li class="submenu-item  ">
-                    <a href="form-editor-summernote.html" class="submenu-link">Denda</a>
+                    <li class="submenu-item  ">
+                        <a href="form-editor-summernote.html" class="submenu-link">denda</a>
 
-                </li>
-
-
-            </ul>
+                    </li>
 
 
-        </li>
+                </ul>
+            </li>
 
-        <li
-        class="sidebar-item  ">
-        <a href="layout-form-input.html" class='sidebar-link'>
-            <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-            <span>Input Data</span>
-        </a>
-        </li>
+            <li
+                class="sidebar-item  ">
+                <a href="layout-form-input.html" class='sidebar-link'>
+                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                    <span>Input Data</span>
+                </a>
+            </li>
 
 
         </ul>
@@ -214,158 +228,313 @@
                 </a>
             </header>
 
-    <div class="page-heading">
-        <div class="page-title">
-            <div class="row">
-                <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Penanganan Gangguan</h3>
-                    <p class="text-subtitle text-muted">List Penanganan Gangguan</p>
-                </div>
-                <div class="col-12 col-md-6 order-md-2 order-first">
-                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Penanganan Gangguan</li>
-                        </ol>
-                    </nav>
-                </div>
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Pemeriksaan Radio FM</h3>
+                <p class="text-subtitle text-muted">List Pemeriksaan Radio FM</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Pemeriksaan Radio FM </li>
+                    </ol>
+                </nav>
             </div>
         </div>
+    </div>
 
     <!-- Basic Tables start -->
-        <section class="section">
-            <div class="card">
-                <div class="card-header">
-                <a href="inputPG.html" class="btn btn-primary">Tambah Data Baru</a>
-                
-
-                </div>
-                <div class="card-body">
+    <section class="section">
+        <div class="card">
+            <div class="card-header">
+            <a href="inputPRFm.html" class="btn btn-primary">Tambah Data Baru</a>
 
 
-                    <div class="datatable_wrapper">
+            </div>
+            <div class="card-body">
+                <div class="datatable_wrapper">
 
-                        <table class="table table-striped " id="tablePG" widht="100%">
-                        </div>
-                        <thead>
-                            <tr>
-                                <th>No Tiket</th>
-                                <th>No Surat Tugas</th>
-                                <th>Tgl Surat Tugas</th>
-                                <th>Pihak Pelapor</th>
-                                <th>Pihak Pengganggu</th>
-                                <th>Frekuensi Terukur (MHz)</th>
-                                <th>Latitude</th>
-                                <th>Longitude</th>
-                                <th>Alamat</th>
-                                <th>Sumber Gangguan</th>
-                                <th>Tindakan</th>
-                                <th>Keterangan</th>
-                                <th>Tanggal Penanganan Gangguan</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        </table>
+                <table id="table_rfm" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                        <th rowspan="3" class="group-border">ID</th>
+                        <th rowspan="3" class="group-border">NO SPT</th>
+                        <th rowspan="3" class="group-border">TGL SPT</th>
+                        <th rowspan="3" class="group-border">TANGGAL Pengukuran</th>
+                        <th rowspan="3" class="group-border">NO ISR</th>
+                        
+                        <th colspan="5" class="group-border">NAMA STASIUN RADIO SIARAN</th> 
 
+                        <th colspan="7" class="group-border">LOKASI PEMANCAR</th>
 
-                        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Update Data</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
+                        <th colspan="14" class="group-border">SPESIFIKASI PERANGKAT</th>
+
+                        <th colspan="12" class="group-border">HASIL UKUR</th> 
+                        <th rowspan="3" class="border-right">STL</th>
+                        <th rowspan="3" class="border-right">Keterangan</th>
+                        <th rowspan="3">Actions</th>
+
+                        </tr>
+                        <tr>
+                        <!-- Isi untuk 'NAMA STASIUN RADIO SIARAN' -->
+                        <th rowspan="2" class="border-right">PENYELENGGARA</th>
+                        <th rowspan="2" class="border-right">ALAMAT</th>
+                        <th rowspan="2" class="border-right">kab/kota</th>
+                        <th rowspan="2" class="border-right">TELP/FAX</th>
+                        <th rowspan="2">E-MAIL</th>
+
+                        <!-- Isi untuk 'LOKASI PEMANCAR' -->
+                        <th rowspan="2">LATITUDE</th>
+                        <th rowspan="2" class="border-right">LONGITUDE</th>
+                        <th rowspan="2" class="border-right">ALAMAT</th>
+                        <th rowspan="2" class="border-right">kab/kota</th>
+                        <th rowspan="2" class="border-right">TINGGI LOKASI (mdpl)</th>
+                        <th rowspan="2" class="border-right">TINGGI GEDUNG (m)</th>
+                        <th rowspan="2">TINGGI MENARA (m)</th>
+
+                        <!-- Sub-grup header 'PEMANCAR' -->
+                        <th colspan="7" class="group-border">PEMANCAR</th>
+                        <!-- Sub-grup header 'ANTENA' -->
+                        <th colspan="7" class="group-border">ANTENA</th>
+                        
+                        <!-- Kolom untuk 'HASIL UKUR' -->
+                        <th rowspan="2" class="group-border">KANAL</th>
+                        <th rowspan="2" class="group-border">FREKUENSI TERUKUR</th>
+                        <th rowspan="2" class="group-border">LEVEL</th>
+                        <th rowspan="2" class="group-border">BANDWIDTH</th>
+                        <th rowspan="2" class="group-border">FIELD STRENGTH</th>
+                        <th rowspan="2" class="group-border">DAYA</th>
+                        <th rowspan="2" class="group-border">MODULASI</th>
+                        <th rowspan="2" class="group-border">DEVIASI</th>
+                        <th rowspan="2" class="group-border">OUTPUT MAX</th>
+                        <!-- Kolom untuk 'HARMONISA' -->
+                        <th colspan="3" class="group-border">HARMONISA</th>
+                        </tr>
+                        
+                        <tr>
+                        <!-- Anak kolom untuk 'PEMANCAR' -->
+                        <th class="border-right">MERK</th>
+                        <th class="border-right">JENIS/TYPE</th>
+                        <th class="border-right">FREKUENSI</th>
+                        <th class="border-right">KELAS EMISI</th>
+                        <th class='border-right'>BANDWIDTH</th>
+                        <th class="border-right">Modulasi</th>
+                        <th class="border-right">MAX POWER</th>
+
+                        <!-- Anak kolom untuk 'ANTENA' -->
+                        <th class="border-right">JENIS ANTENA</th>
+                        <th class="border-right">POLARISASI</th>
+                        <th class="border-right">JUMLAH ELEMEN</th>
+                        <th class="border-right">GAIN</th>
+                        <th class="border-right">BEAM/ANTTENA</th>
+                        <th class="border-right">JENIS KABEL/FEEDER</th>
+                        <th class="border-right">PANJANG KABEL/FEEDER</th>
+                        
+                    
+
+                        <!-- Kolom untuk 'HARMONISA' -->
+                        <th class="border-right">H1</th>
+                        <th class="border-right">H2</th>
+                        <th class="border-right">H3</th>
+                        </tr>
+                    
+                    </thead>
+                    <tbody>
+                        <!-- Isi data untuk setiap baris di sini -->
+                    </tbody>
+              </table>
+              <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full">
+                    <div class="modal-content">
+                   
+                          <!-- Modal Update -->
+                    <div class="modal-body">
+                        <form id="updateForm">
+                            <div class="row">
+                                <!-- Bagian Kiri: Identitas, Nama Stasiun Radio Siaran, Lokasi Pemancar -->
+                                <div class="col-md-6">
+                                    <!-- Identitas -->
+                                    <h5>Identitas</h5>
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputID">ID</label>
+                                            <input type="text" class="form-control" id="inputID" name="id">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputNoISR">NO ISR</label>
+                                            <input type="text" class="form-control" id="inputNoISR" name="no_isr">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputNoSPT">NO SPT</label>
+                                            <input type="text" class="form-control" id="inputNoSPT" name="no_spt">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputTglSPT">TGL SPT</label>
+                                            <input type="date" class="form-control" id="inputTglSPT" name="tgl_spt">
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><label for="inputTanggalPengukuran">TANGGAL Pengukuran</label><input type="date" class="form-control" id="inputTanggalPengukuran" name="tanggal_pengukuran"></div>
+                                    
+
+                                    <!-- Nama Stasiun Radio Siaran -->
+                                    <h5>Nama Stasiun Radio Siaran</h5>
+                                    <div class="form-group"><label for="inputPenyelenggara">PENYELENGGARA</label><input type="text" class="form-control" id="inputPenyelenggara" name="penyelenggara"></div>
+                                    <div class="form-group"><label for="inputAlamatStasiun">ALAMAT</label><input type="text" class="form-control" id="inputAlamatStasiun" name="alamat_stasiun"></div>
+                                    <div class="form-group"><label for="inputKabKotaStasiun">kab/kota</label><input type="text" class="form-control" id="inputKabKotaStasiun" name="kab_kota_stasiun"></div>
+                                    <div class="form-group"><label for="inputTelpFax">TELP/FAX</label><input type="text" class="form-control" id="inputTelpFax" name="telp_fax"></div>
+                                    <div class="form-group"><label for="inputEmail">E-MAIL</label><input type="email" class="form-control" id="inputEmail" name="email"></div>
+
+                                    <!-- Lokasi Pemancar -->
+                                    <h5>Lokasi Pemancar</h5>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLatitude">LATITUDE</label>
+                                            <input type="text" class="form-control" id="inputLatitude" name="latitude">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLongitude">LONGITUDE</label>
+                                            <input type="text" class="form-control" id="inputLongitude" name="longitude">
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><label for="inputAlamatPemancar">ALAMAT</label><input type="text" class="form-control" id="inputAlamatPemancar" name="alamat_pemancar"></div>
+                                    <div class="form-group"><label for="inputKabKotaPemancar">kab/kota</label><input type="text" class="form-control" id="inputKabKotaPemancar" name="kab_kota_pemancar"></div>
+                                    <div class="form-group"><label for="inputTinggiLokasi">TINGGI LOKASI (mdpl)</label><input type="number" class="form-control" id="inputTinggiLokasi" name="tinggi_lokasi"></div>
+                                    <div class="form-group"><label for="inputTinggiGedung">TINGGI GEDUNG (m)</label><input type="number" class="form-control" id="inputTinggiGedung" name="tinggi_gedung"></div>
+                                    <div class="form-group"><label for="inputTinggiMenara">TINGGI MENARA (m)</label><input type="number" class="form-control" id="inputTinggiMenara" name="tinggi_menara"></div>
                                 </div>
-                             <div class="modal-body">
-                                    <form id="updateForm">
-                                    <input type="hidden" id="update_id" name="id">
-                                    <div class="form-group">
-                                        <label for="update_no_surat_tugas">No Surat Tugas:</label>
-                                        <input type="text" class="form-control" id="update_no_surat_tugas" name="no_surat_tugas" required>
+
+                                <!-- Bagian Kanan: Spesifikasi Perangkat (Pemancar, Antena), Hasil Ukur, Harmonisa -->
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-12"><h5>Spesifikasi Perangkat</h5></div>
+                                        <!-- Pemancar -->
+                                        <div class="col-md-6">
+                                            <h6>Pemancar</h6>
+                                            <div class="form-group"><label for="inputMerk">MERK</label><input type="text" class="form-control" id="inputMerk" name="merk"></div>
+                                            <div class="form-group"><label for="inputJenisType">JENIS/TYPE</label><input type="text" class="form-control" id="inputJenisType" name="jenis_type"></div>
+                                            <div class="form-group"><label for="inputFrekuensiPemancar">FREKUENSI</label><input type="text" class="form-control" id="inputFrekuensiPemancar" name="frekuensi_pemancar"></div>
+                                            <div class="form-group"><label for="inputKelasEmsi">KELAS EMISI</label><input type="text" class="form-control" id="inputKelasEmsi" name="kelas_emsi"></div>
+                                            <div class="form-group"><label for="inputBandwidthPemancar">BANDWIDTH</label><input type="text" class="form-control" id="inputBandwidthPemancar" name="bandwidth_pemancar"></div>
+                                            <div class="form-group"><label for="inputModulasiPemancar">Modulasi</label><input type="text" class="form-control" id="inputModulasiPemancar" name="modulasi_pemancar"></div>
+                                            <div class="form-group"><label for="inputMaxPower">MAX POWER</label><input type="text" class="form-control" id="inputMaxPower" name="max_power"></div>
+                                        </div>
+                                        <!-- Antena -->
+                                        <div class="col-md-6">
+                                            <h6>Antena</h6>
+                                            <div class="form-group"><label for="inputJenisAntena">JENIS ANTENA</label><input type="text" class="form-control" id="inputJenisAntena" name="jenis_antena"></div>
+                                            <div class="form-group"><label for="inputPolarisasi">POLARISASI</label><input type="text" class="form-control" id="inputPolarisasi" name="polarisasi"></div>
+                                            <div class="form-group"><label for="inputJumlahElemen">JUMLAH ELEMEN</label><input type="number" class="form-control" id="inputJumlahElemen" name="jumlah_elemen"></div>
+                                            <div class="form-group"><label for="inputGain">GAIN</label><input type="text" class="form-control" id="inputGain" name="gain"></div>
+                                            <div class="form-group"><label for="inputBeamAntenna">BEAM/ANTENA</label><input type="text" class="form-control" id="inputBeamAntenna" name="beam_antenna"></div>
+                                            <div class="form-group"><label for="inputJenisKabelFeeder">JENIS KABEL/FEEDER</label><input type="text" class="form-control" id="inputJenisKabelFeeder" name="jenis_kabel_feeder"></div>
+                                            <div class="form-group"><label for="inputPanjangKabelFeeder">PANJANG KABEL/FEEDER</label><input type="number" class="form-control" id="inputPanjangKabelFeeder" name="panjang_kabel_feeder"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Hasil Ukur -->
+                                    <h5>Hasil Ukur</h5>
+                                    <!-- Input fields untuk Hasil Ukur -->
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputKanal">KANAL</label>
+                                            <input type="text" class="form-control" id="inputKanal" name="kanal">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFrekuensiTerukur">FREKUENSI TERUKUR</label>
+                                            <input type="text" class="form-control" id="inputFrekuensiTerukur" name="frekuensi_terukur">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLevel">LEVEL</label>
+                                            <input type="text" class="form-control" id="inputLevel" name="level">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputBandwidthHasilUkur">BANDWIDTH</label>
+                                            <input type="text" class="form-control" id="inputBandwidthHasilUkur" name="bandwidth_hasil_ukur">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFieldStrength">FIELD STRENGTH</label>
+                                            <input type="text" class="form-control" id="inputFieldStrength" name="field_strength">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputDaya">DAYA</label>
+                                            <input type="text" class="form-control" id="inputDaya" name="daya">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputModulasiHasilUkur">MODULASI</label>
+                                            <input type="text" class="form-control" id="inputModulasiHasilUkur" name="modulasi_hasil_ukur">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputDeviasi">DEVIASI</label>
+                                            <input type="text" class="form-control" id="inputDeviasi" name="deviasi">
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="update_tanggal_tugas">Tanggal Tugas:</label>
-                                        <input type="date" class="form-control" id="update_tanggal_tugas" name="tanggal_tugas" required>
+                                        <label for="inputOutputMax">OUTPUT MAX</label>
+                                        <input type="text" class="form-control" id="inputOutputMax" name="output_max">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="update_pihak_pelapor">Pihak Pelapor:</label>
-                                        <input type="text" class="form-control" id="update_pihak_pelapor" name="pihak_pelapor" required>
+
+                                    <!-- Harmonisa -->
+                                    <h5>Harmonisa</h5>
+                                    <div class="row">
+                                        <div class="col-md-4"><div class="form-group"><label for="inputH1">H1</label><input type="text" class="form-control" id="inputH1" name="h1"></div></div>
+                                        <div class="col-md-4"><div class="form-group"><label for="inputH2">H2</label><input type="text" class="form-control" id="inputH2" name="h2"></div></div>
+                                        <div class="col-md-4"><div class="form-group"><label for="inputH3">H3</label><input type="text" class="form-control" id="inputH3" name="h3"></div></div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="update_pihak_pengganggu">Pihak Pengganggu:</label>
-                                        <input type="text" class="form-control" id="update_pihak_pengganggu" name="pihak_pengganggu">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="inputSTL">STL</label>
+                                                <input type="text" class="form-control" id="inputSTL" name="stl">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="inputKeterangan">KETERANGAN</label>
+                                                <select class="form-control" id="inputKeterangan" name="keterangan">
+                                                    <option value="off_air">Off Air</option>
+                                                    <option value="on_air">On Air</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="update_frekuensi_terukur">Frekuensi Terukur:</label>
-                                        <input type="text" class="form-control" id="update_frekuensi_terukur" name="frekuensi_terukur">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="update_latitude">Latitude:</label>
-                                        <input type="text" class="form-control" id="update_latitude" name="latitude">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="update_longitude">Longitude:</label>
-                                        <input type="text" class="form-control" id="update_longitude" name="longitude">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="update_alamat">Alamat:</label>
-                                        <input type="text" class="form-control" id="update_alamat" name="alamat">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="update_sumber_gangguan">Sumber Gangguan:</label>
-                                        <input type="text" class="form-control" id="update_sumber_gangguan" name="sumber_gangguan">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="update_tindakan">Tindakan:</label>
-                                        <textarea class="form-control" id="update_tindakan" name="tindakan"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="update_keterangan">Keterangan:</label>
-                                        <textarea class="form-control" id="update_keterangan" name="keterangan"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="update_tanggal_penanganan_gangguan">Tanggal Penanganan Gangguan:</label>
-                                        <input type="date" class="form-control" id="update_tanggal_penanganan_gangguan" name="tanggal_penanganan_gangguan">
-                                    </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" form="updateForm" class="btn btn-primary">Save Changes</button>
-                                </div>
                                 </div>
                             </div>
+                            </form>
                         </div>
-
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
+                            </div>
+                        </div>
+                            </div>
+                    
                     </div>
-                
-                </div>
-            </div>
+              </div>
 
-
-        </section>
+    </section>
 
 
 </div>
 
 
-      
-
-
-
-<footer>
-    <div class="footer clearfix mb-0 text-muted">
-        <div class="float-start">
-            <p>2023 &copy; Mazer</p>
-        </div>
-      
-    </div>
-</footer>
-
-
 <!-- <script src="assets/static/js/pages/datatables.js"></script>  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <!-- <script src="assets/extensions/jquery/jquery.min.js"></script> -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script src="assets/compiled/js/app.js"></script>
@@ -385,139 +554,153 @@
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script> -->
 
-    
+   
+
 <script>
-   $(document).ready(function() {
-    var table = $('#tablePG').DataTable({
-        "processing": true,
-        // "serverSide": true, pake ini kalo mau make ssp, buat script buat handle dulu
-        "ajax": {
-            "url": "connection/read_data.php?tabel=gangguan_frekuensi",
-            "type": "GET"
-        },
-        "scrollX": true,
-        "fixedColumns": {
+    $(document).ready(function() {
+        table = $('#table_rfm').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                "url": "connection/read_data.php?tabel=pengukuran_radio_fm", 
+                "type": "POST",
+                
+            },
+            "scrollX": true,
+            "scrollY": true,
+            "fixedColumns": {
                 leftColumns: 1,
                 rightColumns : 1
              },
-        "columnDefs": [
-            { "width": "800px", "targets": 10 }, 
-            { "width": "300px", "targets": 9 },
-            { "width": "500px", "targets": 8 },
-            { "width": "150px", "targets": 2 },
-            { "width": "150px", "targets": 5 },
-            { "width": "80px", "targets": 1 },
-            { "width": "150px", "targets": 3 }
-            ],
-            "pageLength": 10,
-            "pagingType": "simple",
-        "columns": [
-            { "data": "id" },
-            { "data": "no_surat_tugas" },
-            { "data": "tanggal_tugas" },
-            { "data": "pihak_pelapor" },
-            { "data": "pihak_pengganggu" },
-            { "data": "frekuensi_terukur" },
-            { "data": "latitude" },
-            { "data": "longitude" },
-            { "data": "alamat" },
-            { "data": "sumber_gangguan" },
-            { "data": "tindakan" },
-            { "data": "keterangan" },
-            { "data": "tanggal_penanganan_gangguan" },
-            {
+            "pageLength": 5,
+            "columns": [
+                {"data": "ID"},
+                {"data": "NO_SPT"},
+                {"data": "TGL_SPT"},
+                {"data": "TANGGAL_PENGUKURAN"},
+                {"data": "NO_ISR"},
+                {"data": "NSR_PENYELENGGARA"},
+                {"data": "NSR_ALAMAT"},
+                {"data": "NSR_KAB_KOTA"},
+                {"data": "NSR_TELP_FAX"},
+                {"data": "NSR_EMAIL"},
+                {"data": "LP_LATITUDE"},
+                {"data": "LP_LONGITUDE"},
+                {"data": "LP_ALAMAT"},
+                {"data": "LP_KAB_KOTA"},
+                {"data": "LP_TINGGI_LOKASI"},
+                {"data": "LP_TINGGI_GEDUNG"},
+                {"data": "LP_TINGGI_MENARA"},
+                {"data": "SP_P_MERK"},
+                {"data": "SP_P_JENIS_TYPE"},
+                {"data": "SP_P_FREKUENSI"},
+                {"data": "SP_P_KELAS_EMISI"},
+                {"data": "SP_P_BANDWIDTH"},
+                {"data": "SP_P_MODULASI"},
+                {"data": "SP_P_MAX_POWER"},
+                {"data": "SP_A_JENIS_ANTENA"},
+                {"data": "SP_A_POLARISASI"},
+                {"data": "SP_A_JUMLAH_ELEMEN"},
+                {"data": "SP_A_GAIN"},
+                {"data": "SP_A_BEAM_ANTENA_ARAH"},
+                {"data": "SP_A_JENIS_KABEL_FEEDER"},
+                {"data": "SP_A_PANJANG_KABEL_FEEDER"},
+                {"data": "HU_KANAL"},
+                {"data": "HU_FREKUENSI_TERUKUR"},
+                {"data": "HU_LEVEL"},
+                {"data": "HU_BANDWIDTH"},
+                {"data": "HU_FIELD_STRENGTH"},
+                {"data": "HU_DAYA"},
+                {"data": "HU_MODULASI"},
+                {"data": "HU_DEVIASI"},
+                {"data": "HU_OUTPUT_MAX"},
+                {"data": "HU_H_H1"},
+                {"data": "HU_H_H2"},
+                {"data": "HU_H_H3"},
+                {"data": "STL"},
+                {"data": "KETERANGAN"},
+                {
                 "data": null,
-                "defaultContent": "<button class='btn btn-primary btn-sm btn-update'>Update</button> <button class='btn btn-danger btn-sm btn-delete'>Delete</button>"
+                "defaultContent": "<button class='btn btn-primary btn-sm btn-update'>Update</button> <button class='btn btn-danger btn-sm btn-delete'>Delete</button>",
+                "orderable": false
             }
-        ]
+            ]
+         
         });
-    
-    $('#tablePG tbody').on('click', '.btn-update', function() {
+
+        console.log("DataTable diinisialisasi:", table_rfm);
+
+        $('#table_rfm tbody').on('click', '.btn-update', function() {
         var tr = $(this).closest('tr');
         var data = table.row(tr).data(); // Mengambil data dari baris
 
         // Mengisi form pada modal dengan data dari baris tabel
-        $('#update_id').val(data.id);
-        $('#update_no_surat_tugas').val(data.no_surat_tugas);
-        $('#update_tanggal_tugas').val(data.tanggal_tugas);
-        $('#update_pihak_pelapor').val(data.pihak_pelapor);
-        $('#update_pihak_pengganggu').val(data.pihak_pengganggu);
-        $('#update_frekuensi_terukur').val(data.frekuensi_terukur);
-        $('#update_latitude').val(data.latitude);
-        $('#update_longitude').val(data.longitude);
-        $('#update_alamat').val(data.alamat);
-        $('#update_sumber_gangguan').val(data.sumber_gangguan);
-        $('#update_tindakan').val(data.tindakan);
-        $('#update_keterangan').val(data.keterangan);
-        $('#update_tanggal_penanganan_gangguan').val(data.tanggal_penanganan_gangguan);
+        $('#inputID').val(data.ID);
+        $('#inputNoSPT').val(data.NO_SPT);
+        $('#inputTglSPT').val(data.TGL_SPT);
+        $('#inputTanggalPengukuran').val(data.TANGGAL_PENGUKURAN);
+        $('#inputNoISR').val(data.NO_ISR);
+        $('#inputPenyelenggara').val(data.NSR_PENYELENGGARA);
+        $('#inputAlamatStasiun').val(data.NSR_ALAMAT);
+        $('#inputKabKotaStasiun').val(data.NSR_KAB_KOTA);
+        $('#inputTelpFax').val(data.NSR_TELP_FAX);
+        $('#inputEmail').val(data.NSR_EMAIL);
+        $('#inputLatitude').val(data.LP_LATITUDE);
+        $('#inputLongitude').val(data.LP_LONGITUDE);
+        $('#inputAlamatPemancar').val(data.LP_ALAMAT);
+        $('#inputKabKotaPemancar').val(data.LP_KAB_KOTA);
+        $('#inputTinggiLokasi').val(data.LP_TINGGI_LOKASI);
+        $('#inputTinggiGedung').val(data.LP_TINGGI_GEDUNG);
+        $('#inputTinggiMenara').val(data.LP_TINGGI_MENARA);
+        $('#inputMerk').val(data.SP_P_MERK);
+        $('#inputJenisType').val(data.SP_P_JENIS_TYPE);
+        $('#inputFrekuensiPemancar').val(data.SP_P_FREKUENSI);
+        $('#inputKelasEmsi').val(data.SP_P_KELAS_EMISI);
+        $('#inputBandwidthPemancar').val(data.SP_P_BANDWIDTH);
+        $('#inputModulasiPemancar').val(data.SP_P_MODULASI);
+        $('#inputMaxPower').val(data.SP_P_MAX_POWER);
+        $('#inputJenisAntena').val(data.SP_A_JENIS_ANTENA);
+        $('#inputPolarisasi').val(data.SP_A_POLARISASI);
+        $('#inputJumlahElemen').val(data.SP_A_JUMLAH_ELEMEN);
+        $('#inputGain').val(data.SP_A_GAIN);
+        $('#inputBeamAntenna').val(data.SP_A_BEAM_ANTENA_ARAH);
+        $('#inputJenisKabelFeeder').val(data.SP_A_JENIS_KABEL_FEEDER);
+        $('#inputPanjangKabelFeeder').val(data.SP_A_PANJANG_KABEL_FEEDER);
+        $('#inputKanal').val(data.HU_KANAL);
+        $('#inputFrekuensiTerukur').val(data.HU_FREKUENSI_TERUKUR);
+        $('#inputLevel').val(data.HU_LEVEL);
+        $('#inputBandwidthHasilUkur').val(data.HU_BANDWIDTH);
+        $('#inputFieldStrength').val(data.HU_FIELD_STRENGTH);
+        $('#inputDaya').val(data.HU_DAYA);
+        $('#inputModulasiHasilUkur').val(data.HU_MODULASI);
+        $('#inputDeviasi').val(data.HU_DEVIASI);
+        $('#inputOutputMax').val(data.HU_OUTPUT_MAX);
+        $('#inputH1').val(data.HU_H_H1);
+        $('#inputH2').val(data.HU_H_H2);
+        $('#inputH3').val(data.HU_H_H3);
+        $('#inputSTL').val(data.STL);
+        $('#inputKETERANGAN').val(data.KETERANGAN);
 
         // Menampilkan modal
         $('#updateModal').modal('show');
     });
-
-    $('#updateForm').submit(function(e) {
-        e.preventDefault(); // Mencegah submit form secara tradisional
-        var formData = $(this).serialize(); // Mengambil data dari form
-
-        $.ajax({
-            type: 'POST',
-            url: 'connection/update_pg.php', // Pastikan path ini benar
-            data: formData,
-            dataType: 'json', // Karena response dari server dalam format JSON
-            success: function(response) {
-                if(response.success) {
-                    alert(response.message);
-                    // Tutup modal dan refresh data/tabel jika diperlukan
-                    $('#updateModal').modal('hide');
-                    table.ajax.reload(null, false); // Reload data tabel tanpa reset paging
-                } else {
-                    alert(response.message);
-                }
-            },
-            error: function() {
-                alert('Terjadi kesalahan saat menghubungi server.');
-            }
-        });
     });
-
-    $('#tablePG tbody').on('click', '.btn-delete', function() {
-    var data = table.row($(this).parents('tr')).data();
-    var id = data.id; // Ambil id dari data baris
-
-    var deleteConfirmed = confirm("Apakah Anda yakin ingin menghapus data ini?");
-        if (deleteConfirmed) {
-            // Jika konfirmasi dijawab "Yes", panggil fungsi untuk menghapus data
-            deleteData(id);
-        }
-    });
-
-    function deleteData(id) {
-    $.ajax({
-        type: 'POST',
-        url: 'connection/delete_pg.php', // Sesuaikan dengan path file PHP penghapus data
-        data: {id: id},
-        success: function(response) {
-            var result = JSON.parse(response);
-            if(result.success) {
-                alert('Data berhasil dihapus.');
-                table.ajax.reload(null, false); // Reload data tanpa mereset paging
-            } else {
-                alert('Gagal menghapus data.');
-            }
-        },
-        error: function() {
-            alert('Terjadi kesalahan saat menghubungi server.');
-        }
-    });
-}
-
-
-
-        
-});
-
+   
 
 </script>
+<footer>
+
+    <div class="footer clearfix mb-0 text-muted">
+        <div class="float-start">
+            <p>2023 &copy; Mazer</p>
+        </div>
+        
+    </div>
+</footer>
 </body>
 
+
 </html>
+
+
+

@@ -131,7 +131,7 @@
                     </li>
 
                     <li class="submenu-item  ">
-                        <a href="layout-vertical-1-column.html" class="submenu-link">Pengukuran Stasiun Siaran Radio FM</a>
+                        <a href="layout-table-pemeriksaan-radio-fm.php" class="submenu-link">Pengukuran Stasiun Siaran Radio FM</a>
 
                     </li>
 

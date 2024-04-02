@@ -5,7 +5,7 @@ include 'koneksi-sfr.php'; // Sertakan file koneksi database
 $tabel = isset($_GET['tabel']) ? $_GET['tabel'] : ''; // Ambil nama tabel dari parameter GET
 
 // List tabel yang diizinkan untuk mencegah SQL Injection
-$tabelYangDiizinkan = ['penertiban_sfr', 'gangguan_frekuensi'];
+$tabelYangDiizinkan = ['penertiban_sfr', 'gangguan_frekuensi','pengukuran_radio_fm','users'];
 
 if(in_array($tabel, $tabelYangDiizinkan)) {
     $sql = "SELECT * FROM $tabel"; // Query untuk mengambil semua data dari tabel yang ditentukan
