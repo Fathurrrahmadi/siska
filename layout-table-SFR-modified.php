@@ -1,3 +1,11 @@
+<?php
+session_start(); // Memulai sesi PHP
+
+echo 'Username: ' . $_SESSION['username'];
+echo 'Role: ' . $_SESSION['role'];
+// Sisipkan kode PHP lainnya jika perlu
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -35,7 +43,7 @@
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-                <a href="index.html"><img src="" alt="" srcset="">SISKA</a>
+                <a href="index.php"><img src="" alt="" srcset="">SISKA</a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -76,7 +84,7 @@
 
             <li
                 class="sidebar-item  ">
-                <a href="index.html" class='sidebar-link'>
+                <a href="index.php" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
@@ -177,7 +185,7 @@
             <ul class="submenu active ">
 
                 <li class="submenu-item active ">
-                    <a href="layout-table-SFR-modified.php" class="submenu-link">SFR spektur frekuensi radio</a>
+                    <a href="layout-table-SFR-modified.php" class="submenu-link">SFR</a>
 
                 </li>
 
@@ -227,7 +235,7 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Penertiban SFR</li>
                     </ol>
                 </nav>
@@ -239,7 +247,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-            <a href="testinput2.html" class="btn btn-primary">Tambah Data Baru</a>
+            <a href="inputSFR.html" class="btn btn-primary">Tambah Data Baru</a>
 
 
             </div>
@@ -321,7 +329,7 @@
                                     Tgl Operasi Stasiun: <input type="date" name="tglOperasiStasiun" id="update-tglOperasiStasiun"><br>
                                     No ISR Setelah Penindakan: <input type="text" name="noISRSetelahPenindakan" id="update-noISRSetelahPenindakan"><br>
                                     No Surat Penindakan: <input type="text" name="noSuratPenindakan" id="update-noSuratPenindakan"><br>
-                                    Tanggal Tindakan: <input type="date" name="tanggalTindakan" id="update-tanggalTindakan"><br>
+                                    Tanggal Tindakan: <input type="date" name="tanggalTindakan" id="u pdate-tanggalTindakan"><br>
                                     Keterangan: <textarea name="keterangan" id="update-keterangan"></textarea><br>
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </form>
@@ -361,14 +369,24 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
-<script>
-   
 
+<script>
+var userRole = '<?php echo $_SESSION['role']; ?>'; // Asumsi role pengguna tersimpan di session
+var fixedColumnSettings = {
+        leftColumns: 1
+        
+    };
+
+    if (userRole === 'admin') {
+        fixedColumnSettings.rightColumns = 1; // Menambahkan fixed column di kanan hanya untuk admin
+    }
     $(document).ready(function() {
         var table = $('#sfrTable').DataTable({
+            "processing": true,
             "ajax": {
-            "url": "connection/read_data.php?tabel=penertiban_sfr", 
-            "type": "GET" // Gunakan "POST" jika server-side kamu dirancang untuk menerima metode POST
+            "url": "connection/crud_sfr.php?action=read", 
+            "type": "GET" ,// Gunakan "POST" jika server-side kamu dirancang untuk menerima metode POST
+            "dataSrc": ""
             },
             "columnDefs": [{ width: 450, targets: 15 },
                            { width: 350, targets: 1 },
@@ -383,10 +401,7 @@
             // ],
             
             "heightMatch" : 50,
-            "fixedColumns": {
-                leftColumns: 2,
-                rightColumns : 1
-             },
+            "fixedColumns":fixedColumnSettings,
              "scrollCollapse": true,
              "scrollX": true,
              "scrollY": true,
@@ -411,38 +426,55 @@
                 { "data": "TANGGAL TINDAKAN" },
                 { "data": "KETERANGAN" },
                 {
-                    "data": null,
-                    "defaultContent": "<button class='btn btn-primary btn-sm btn-update'>Update</button> <button class='btn btn-danger btn-sm btn-delete'>Delete</button>"
+                "data": null,
+                "render": function(data, type, row) {
+                    // Hanya tampilkan tombol jika user adalah admin
+                    if (userRole === 'admin') {
+                        return "<button class='btn btn-primary btn-sm btn-update'>Update</button> <button class='btn btn-danger btn-sm btn-delete'>Delete</button>";
+                    } else {
+                        return ""; // Kosongkan jika bukan admin
+                    }
                 }
-             ]
+                }
+            ],
+            "initComplete": function(settings, json) {
+            // Sembunyikan kolom berdasarkan role setelah tabel diinisialisasi
+            if (userRole !== 'admin') {
+                table.column(16).visible(false); // Mengasumsikan kolom aksi adalah kolom ke-14 (indeks 13)
+            }
+        }
             
         });
- 
-    
-        $('#sfrTable tbody').on('click', '.btn-delete', function() {
-            var data = table.row($(this).parents('tr')).data();
-            if (confirm("Are you sure you want to delete this record?")) {
+        $(document).ready(function() {
+        $('addForm').on('submit', function(e) {
+                e.preventDefault();
+                var formData = $(this).serialize();
                 $.ajax({
-                    type: "POST",
-                    url: "connection/delete_data.php",
-                    data: { idsfr: data.idsfr },
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: formData,
                     success: function(response) {
-                        alert("Record deleted successfully");
-                        table.ajax.reload();
+                        // Asumsi response server mengembalikan JSON dengan format { success: true/false, message: "pesan" }
+                        var data = JSON.parse(response);
+                        if(data.success) {
+                            alert('Data berhasil disimpan: ' + data.message);
+                            window.location.href = 'layout-table-SFR-modified.php'; // Redirect ke halaman tabel
+                        } else {
+                            alert('Gagal menyimpan data: ' + data.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Terjadi kesalahan: ' + error);
                     }
                 });
-            }
+            });
         });
-         $('.close').click(function() {
-             $('#updateModal').modal('hide');
-         });
-        
-        
-            $('#sfrTable tbody').on('click', '.btn-update', function() {
-            var tr = $(this).closest('tr');
-            var data = table.row(tr).data();
 
-            // Populate the form fields with the data from the row
+        $('#sfrTable tbody').on('click', '.btn-update', function() {
+            var tr = $(this).closest('tr');
+            var data = table.row(tr).data(); // Mengambil data dari baris
+
+            // Mengisi form pada modal dengan data dari baris tabel
             $('#update-idsfr').val(data.idsfr); // Assuming 'idsfr' is the column name in your DataTable
             $('#update-namaPengguna').val(data['NAMA PENGGUNA']);
             $('#update-frekuensi').val(data['FREKUENSI(MHz)']);
@@ -454,70 +486,67 @@
             $('#update-jenisPelanggaran').val(data['JENIS PELANGGARAN']); // Make sure the value matches the option value
             $('#update-tindakan').val(data.TINDAKAN);
             $('#update-status').val(data.STATUS);
-            $('#update-tglOperasiStasiun').val(formatDate(data['TGL OPERASI STASIUN'])); // Assuming the date needs formatting
+            $('#update-tglOperasiStasiun').val(data['TGL OPERASI STASIUN']); // Assuming the date needs formatting
             $('#update-noISRSetelahPenindakan').val(data['NO ISR SETELAH PENINDAKAN']);
             $('#update-noSuratPenindakan').val(data['NO SURAT PENINDAKAN']);
-            $('#update-tanggalTindakan').val(formatDate(data['TANGGAL TINDAKAN'])); // Assuming the date needs formatting
+            $('#update-tanggalTindakan').val(data['TANGGAL TINDAKAN']); // Assuming the date needs formatting
             $('#update-keterangan').val(data.KETERANGAN);
 
-            // Show the modal (assuming you are using Bootstrap's modal or similar)
+            // Menampilkan modal
             $('#updateModal').modal('show');
         });
 
-            // Format date if necessary
-            function formatDate(dateString) {
-                if (!dateString) return '';
-                var date = new Date(dateString);
-                var month = '' + (date.getMonth() + 1),
-                    day = '' + date.getDate(),
-                    year = date.getFullYear();
+        $('#updateForm').submit(function(e) {
+            e.preventDefault(); // Mencegah submit form secara tradisional
+            var formData = $(this).serialize() + "&action=update"; // Mengambil data dari form
 
-                if (month.length < 2) 
-                    month = '0' + month;
-                if (day.length < 2) 
-                    day = '0' + day;
-
-                return [year, month, day].join('-');
-            }
-
-        $(document).ready(function() {
-            $('#updateForm').submit(function(e) {
-                e.preventDefault();
-                var formData = $(this).serialize();
-                $.ajax({
-                    type: 'POST',
-                    url: 'connection/update_data.php', // Assuming this file is in the same directory as your HTML file
-                    data: formData,
-                    dataType: 'json',
-                    success: function(response) {
-                        alert(response.message);
-                        if (response.success) {
-                            $('#updateModal').modal('hide'); // Assuming you're using Bootstrap's modal
-                            // Reload DataTable without refreshing the page
-                            $('#sfrTable').DataTable().ajax.reload();
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        alert('An error occurred: ' + error);
-                    }
-                });
-            });
-        });
-
-       $('#addForm').submit(function(e) {
-            e.preventDefault();
-            var formData = $(this).serialize();
             $.ajax({
-                type: "POST",
-                url: "connection/create_data.php",
+                type: 'POST',
+                url: 'connection/crud_sfr.php', // Pastikan path ini benar
                 data: formData,
+                dataType: 'json', // Karena response dari server dalam format JSON
                 success: function(response) {
-                    alert("Record added successfully");
-                    $('#addForm')[0].reset();
-                    table.ajax.reload();
+                    if(response.success) {
+                        alert(response.message);
+                        // Tutup modal dan refresh data/tabel jika diperlukan
+                        $('#updateModal').modal('hide');
+                        table.ajax.reload(null, false); // Reload data tabel tanpa reset paging
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                // It's helpful to log the whole xhr object to see the response that was received.
+                console.log(xhr.responseText);
+                alert('Terjadi kesalahan: ' + xhr.responseText);
                 }
             });
+            
+
         });
+
+     
+ 
+    
+        $('#sfrTable tbody').on('click', '.btn-delete', function() {
+            var data = table.row($(this).parents('tr')).data();
+            if (confirm("Are you sure you want to delete this record?")) {
+                $.ajax({
+                    type: "POST",
+                    url: 'connection/crud_sfr.php', // Sesuaikan dengan path file PHP penghapus data
+                    data: { id: data.id, action: 'delete' },
+                    success: function(response) {
+                        alert("Record deleted successfully");
+                        table.ajax.reload();
+                    }
+                });
+            }
+        });
+         $('.close').click(function() {
+             $('#updateModal').modal('hide');
+         });
+
+       
 
     }); 
 </script>

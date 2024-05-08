@@ -1,3 +1,10 @@
+<?php
+session_start(); // Memulai sesi PHP
+
+echo 'Username: ' . $_SESSION['username'];
+echo 'Role: ' . $_SESSION['role'];
+// Sisipkan kode PHP lainnya jika perlu
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +23,6 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.1.0/css/fixedColumns.dataTables.min.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.css"> -->
-
-    <!-- <link rel="stylesheet" href="./assets/compiled/css/table-edit.css"> -->
   <link rel="stylesheet" href="./assets/compiled/css/app.css">
   <link rel="stylesheet" href="./assets/compiled/css/app-dark.css">
 
@@ -32,7 +36,7 @@
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-            <a href="index.html"><img src="" alt="" srcset="">SISKA</a>
+            <a href="index.php"><img src="" alt="" srcset="">SISKA</a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -73,7 +77,7 @@
 
             <li
                 class="sidebar-item  ">
-                <a href="index.html" class='sidebar-link'>
+                <a href="index.php" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
@@ -224,7 +228,7 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Penanganan Gangguan</li>
                         </ol>
                     </nav>
@@ -278,7 +282,7 @@
                                     </button>
                                 </div>
                              <div class="modal-body">
-                                    <form id="updateForm">
+                                <form id="updateForm">
                                     <input type="hidden" id="update_id" name="id">
                                     <div class="form-group">
                                         <label for="update_no_surat_tugas">No Surat Tugas:</label>
@@ -328,14 +332,14 @@
                                         <label for="update_tanggal_penanganan_gangguan">Tanggal Penanganan Gangguan:</label>
                                         <input type="date" class="form-control" id="update_tanggal_penanganan_gangguan" name="tanggal_penanganan_gangguan">
                                     </div>
-                                    </form>
+                                </form>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" form="updateForm" class="btn btn-primary">Save Changes</button>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" form="updateForm" class="btn btn-primary">Save Changes</button>
+                                    </div>
                                 </div>
-                                </div>
-                            </div>
+                             </div>
                         </div>
 
                     </div>
@@ -381,25 +385,34 @@
 <script src="https://cdn.datatables.net/fixedcolumns/4.1.0/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script> -->
-
     
 <script>
+
+var userRole = '<?php echo $_SESSION['role']; ?>'; // Asumsi role pengguna tersimpan di session
+var fixedColumnSettings = {
+        leftColumns: 1
+        
+    };
+
+    if (userRole === 'admin') {
+        fixedColumnSettings.rightColumns = 1; // Menambahkan fixed column di kanan hanya untuk admin
+    }
    $(document).ready(function() {
     var table = $('#tablePG').DataTable({
         "processing": true,
         // "serverSide": true, pake ini kalo mau make ssp, buat script buat handle dulu
         "ajax": {
-            "url": "connection/read_data.php?tabel=gangguan_frekuensi",
-            "type": "GET"
+        "url": "connection/crud_pg.php?action=read",
+        "type": "GET",
+        "dataSrc": "",  // This is correct if your JSON response is a direct array
+        // "error": function (xhr, error, thrown) {
+        //     console.error("Error occurred:", error, thrown);
+        // }
         },
         "scrollX": true,
-        "fixedColumns": {
-                leftColumns: 1,
-                rightColumns : 1
-             },
+        "fixedColumns": fixedColumnSettings, 
+                
+            
         "columnDefs": [
             { "width": "800px", "targets": 10 }, 
             { "width": "300px", "targets": 9 },
@@ -427,10 +440,49 @@
             { "data": "tanggal_penanganan_gangguan" },
             {
                 "data": null,
-                "defaultContent": "<button class='btn btn-primary btn-sm btn-update'>Update</button> <button class='btn btn-danger btn-sm btn-delete'>Delete</button>"
+                "render": function(data, type, row) {
+                    // Hanya tampilkan tombol jika user adalah admin
+                    if (userRole === 'admin') {
+                        return "<button class='btn btn-primary btn-sm btn-update'>Update</button> <button class='btn btn-danger btn-sm btn-delete'>Delete</button>";
+                    } else {
+                        return ""; // Kosongkan jika bukan admin
+                    }
+                }
             }
-        ]
+        ],
+        "initComplete": function(settings, json) {
+            // Sembunyikan kolom berdasarkan role setelah tabel diinisialisasi
+            if (userRole !== 'admin') {
+                table.column(13).visible(false); // Mengasumsikan kolom aksi adalah kolom ke-14 (indeks 13)
+            }
+        }
+    });
+    $(document).ready(function() {
+    $('form').on('submit', function(e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: formData,
+                success: function(response) {
+                    // Asumsi response server mengembalikan JSON dengan format { success: true/false, message: "pesan" }
+                    var data = JSON.parse(response);
+                    if(data.success) {
+                        alert('Data berhasil disimpan: ' + data.message);
+                        window.location.href = 'layout-penanganan-gangguan.php'; // Redirect ke halaman tabel
+                    } else {
+                        alert('Gagal menyimpan data: ' + data.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert('Terjadi kesalahan: ' + error);
+                }
+            });
         });
+    });
+
+
     
     $('#tablePG tbody').on('click', '.btn-update', function() {
         var tr = $(this).closest('tr');
@@ -457,11 +509,11 @@
 
     $('#updateForm').submit(function(e) {
         e.preventDefault(); // Mencegah submit form secara tradisional
-        var formData = $(this).serialize(); // Mengambil data dari form
+        var formData = $(this).serialize(); + "&action=update";// Mengambil data dari form
 
         $.ajax({
             type: 'POST',
-            url: 'connection/update_pg.php', // Pastikan path ini benar
+            url: 'connection/crud_pg.php', // Pastikan path ini benar
             data: formData,
             dataType: 'json', // Karena response dari server dalam format JSON
             success: function(response) {
@@ -478,6 +530,8 @@
                 alert('Terjadi kesalahan saat menghubungi server.');
             }
         });
+        // error_log('Data frekuensi_terukur yang diterima: ' . $_POST['frekuensi_terukur']);
+
     });
 
     $('#tablePG tbody').on('click', '.btn-delete', function() {
@@ -494,8 +548,8 @@
     function deleteData(id) {
     $.ajax({
         type: 'POST',
-        url: 'connection/delete_pg.php', // Sesuaikan dengan path file PHP penghapus data
-        data: {id: id},
+        url: 'connection/crud_pg.php', // Sesuaikan dengan path file PHP penghapus data
+        data: { id: data.id, action: 'delete' },
         success: function(response) {
             var result = JSON.parse(response);
             if(result.success) {
@@ -509,11 +563,7 @@
             alert('Terjadi kesalahan saat menghubungi server.');
         }
     });
-}
-
-
-
-        
+}        
 });
 
 

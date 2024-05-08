@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data Penanganan Gangguan</title>
+    <title>Tambah Data SFR</title>
     
     
     
@@ -148,7 +148,7 @@
 
 
             <li
-            class="sidebar-item active ">
+            class="sidebar-item  ">
             <a href="layout-penanganan-gangguan.php" class='sidebar-link'>
                 <i class="bi bi-file-earmark-medical-fill"></i>
                 <span>Penanganan Ganguan</span>
@@ -157,15 +157,15 @@
 
 
             <li
-            class="sidebar-item  has-sub">
+            class="sidebar-item active has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-pen-fill"></i>
                 <span>Penertiban</span>
             </a>
 
-            <ul class="submenu  ">
+            <ul class="submenu active ">
 
-                <li class="submenu-item  ">
+                <li class="submenu-item active ">
                     <a href="layout-table-SFR-modified.php" class="submenu-link">SFR spektur frekuensi radio</a>
 
                 </li>
@@ -215,130 +215,151 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="layout-penanganan-gangguan.php">Penanganan Ganguan</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tambah Data PG</li>
+                        <li class="breadcrumb-item"><a href="layout-table-SFR-modified.php">SFR</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tambah Data Penertiban</li>
                     </ol>
                 </nav>
             </div>
         </div>
     </div>
     <section id="multiple-column-form">
-        <div class="container-fluid">
-            <div class="row match-height">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Formulir Data Gangguan Frekuensi</h4>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-body">
-                                <form action="connection/crud_pg.php" method="post">
-                                    <input type="hidden" name="action" value="create">
-                                    <div class="row">
-                                        <!-- No Surat Tugas -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="no_surat_tugas">No Surat Tugas:</label>
-                                                <input type="text" id="no_surat_tugas" class="form-control" name="no_surat_tugas" required>
-                                            </div>
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Formulir Data</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form id="addForm" method="post" action="connection/crud_sfr.php" class="form">
+                                <input type="hidden" name="action" value="create">
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="namaPengguna">Nama Pengguna</label>
+                                            <input type="text" id="namaPengguna" class="form-control" name="NAMA_PENGGUNA" required>
                                         </div>
-                                        <!-- Tanggal Tugas -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="tanggal_tugas">Tanggal Tugas:</label>
-                                                <input type="date" id="tanggal_tugas" class="form-control" name="tanggal_tugas" required>
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="frekuensi">Frekuensi (MHz)</label>
+                                            <input type="text" id="frekuensi" placeholder="00.000" class="form-control" name="FREKUENSI_MHz" required>
                                         </div>
-                                        <!-- Pihak Pelapor -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="pihak_pelapor">Pihak Pelapor:</label>
-                                                <input type="text" id="pihak_pelapor" class="form-control" name="pihak_pelapor" required>
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="dinas">Dinas</label>
+                                            <input type="text" id="dinas" placeholder="Broadcast" class="form-control" name="DINAS" required>
                                         </div>
-                                        <!-- Pihak Pengganggu -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="pihak_pengganggu">Pihak Pengganggu:</label>
-                                                <input type="text" id="pihak_pengganggu" class="form-control" name="pihak_pengganggu" required>
-                                            </div>
+                                    </div>
+                                   
+                                    <div class="col-md-6 col-12">
+                                        <label for="subservice">Subservice</label>
+                                        <select id="subservice" class="form-control" name="SUBSERVICE" required>
+                                            <option value="" disabled selected>Pilih Subservice</option>
+                                            <option value="AM">AM</option>
+                                            <option value="FM">FM</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="lokasi">Lokasi</label>
+                                            <input type="text" id="lokasi" placeholder="Lokasi" class="form-control" name="LOKASI" required>
                                         </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="latitude">Latitude:</label>
-                                                <input type="text" id="latitude" class="form-control" name="latitude" required>
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="provinsi">Provinsi</label>
+                                            <input type="text" id="provinsi" placeholder="Provinsi" class="form-control" name="PROVINSI" required>
                                         </div>
-                                        <!-- Frekuensi Terukur -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="frekuensi_terukur">Frekuensi Terukur (MHz):</label>
-                                                <input type="text" id="frekuensi_terukur" class="form-control" name="frekuensi_terukur" placeholder="00.000" required>
-                                            </div>
+                                    </div>
+                                   
+                                    <div class="col-md-6 col-12">
+                                        <label for="kabKota">Kab/Kota</label>
+                                        <select id="kabKota" class="form-control" name="KAB_KOTA" required>
+                                            <option value="" disabled selected>Pilih Kab/Kota</option>
+                                            <option value="Jakarta">Jakarta</option>
+                                            <option value="Bogor">Bogor</option>
+                                            <option value="Kabupaten Bogor">Kabupaten Bogor</option>
+                                            <option value="Depok">Depok</option>
+                                            <option value="Tangerang">Tangerang</option>
+                                            <option value="Kabupaten Tanggerang">Kabupaten Tanggerang</option>
+                                            <option value="Bekasi">Bekasi</option>
+                                            <option value="Kabupaten Bekasi">Kabupaten Bekasi</option>
+                                            <option value="Kepulauan Seribu">Kepulauan Seribu</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="jenisPelanggaran">Jenis Pelanggaran</label>
+                                            <select id="jenisPelanggaran" class="form-control" name="JENIS_PELANGGARAN" required>
+                                                <option value="" disabled selected>Pilih Jenis</option>
+                                                <option value="ILEGAL">ILLEGAL</option>
+                                                <option value="LEGAL">LEGAL</option>
+                                            </select>
                                         </div>
-                                        <!-- Latitude -->
-                                       
-                                        <!-- Longitude -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="longitude">Longitude:</label>
-                                                <input type="text" id="longitude" class="form-control" name="longitude" required>
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="tindakan">Tindakan</label>
+                                            <input type="text" id="tindakan" class="form-control" name="TINDAKAN" required>
                                         </div>
-                                        <!-- Alamat -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="alamat">Alamat:</label>
-                                                <input type="text" id="alamat" class="form-control" name="alamat" required>
-                                            </div>
+                                    </div>
+                                  
+                                    <div class="col-md-6 col-12">
+                                        <label for="status">Status</label>
+                                        <select id="status" class="form-control" name="STATUS" required>
+                                            <option value="" disabled selected>Pilih Status</option>
+                                            <option value="Off Air">Off Air</option>
+                                            <option value="On Air">On Air</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="tglOperasi">Tgl Operasi Stasiun</label>
+                                            <input type="date" id="tglOperasi" class="form-control " name="TGL_OPERASI_STASIUN" required>
                                         </div>
-                                        <div class="col-md-6 col-12">
-                                            <label for="tanggal_penanganan_gangguan">Tanggal Penanganan Gangguan:</label>
-                                            <input type="date" id="tanggal_penanganan_gangguan" class="form-control" name="tanggal_penanganan_gangguan" required>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="noISRSetelahPenindakan">No ISR Setelah Penindakan</label>
+                                            <input type="text" id="noISRSetelahPenindakan" placeholder="000aaa" class="form-control" name="NO_ISR_SETELAH_PENINDAKAN" required>
                                         </div>
-                                        <div class="col-md-6 col-12">
-                                            </div>
-                                        <!-- Sumber Gangguan -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="sumber_gangguan">Sumber Gangguan:</label>
-                                                <textarea id="sumber_gangguan" class="form-control" name="sumber_gangguan" rows="3" required></textarea>
-                                            
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="noSuratPenindakan">No Surat Penindakan</label>
+                                            <input type="text" id="noSuratPenindakan" placeholder="0000" class="form-control" name="NO_SURAT_PENINDAKAN" required>
                                         </div>
-                                        <!-- Keterangan -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="keterangan">Keterangan:</label>
-                                                <textarea id="keterangan" class="form-control" name="keterangan" rows="3" required></textarea>
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="tanggalTindakan">Tanggal Tindakan</label>
+                                            <input type="date" id="tanggalTindakan" class="form-control" name="TANGGAL_TINDAKAN" required>
                                         </div>
-                                        <div class="col-md-6 col-12">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="keterangan">Keterangan</label>
+                                            <textarea id="keterangan" class="form-control" name="KETERANGAN" required></textarea>
                                         </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="col-12 d-flex justify-content-end">
-                                                <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                                                <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                                
-                                            </div>
-        
-        
-                                        </div>
-                                       
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                        <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                      
                                     </div>
                                 </div>
-                              
                             </form>
-                            </div>
-                        
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-  
+    
     
 </div>
 
