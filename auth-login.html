@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    
+  
     <link rel="stylesheet" href="./assets/compiled/css/app.css">
     <link rel="stylesheet" href="./assets/compiled/css/app-dark.css">
     <link rel="stylesheet" href="./assets/compiled/css/auth.css">
@@ -15,8 +15,14 @@
         <div class="row h-100">
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
+                    <img src="assets/compiled/png/resized logo balmon.png" alt="Logo Balmon" class="logo-balmon">
                     <h1 class="auth-title">SISKA</h1>
-                    <p class="auth-subtitle mb-5">Silahkan Login.</p>
+
+                    <p class="auth-subtitle mb-2 ">Sistem Informasi Kinerja</p>
+
+                    <!-- <p class="auth-sub-subtitle mb-5">Silahkan Login.</p> -->
+                    <p class="auth-sub-subtitle mb-5"></p>
+             
                     <form id="loginForm" action="connection/auth.php" method="POST">
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="text" name="username" class="form-control form-control-xl" placeholder="Username" id="username" required>
