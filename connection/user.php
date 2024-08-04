@@ -43,4 +43,4 @@ class User {
         return $this->last_error;
     }
 }
-?>
+

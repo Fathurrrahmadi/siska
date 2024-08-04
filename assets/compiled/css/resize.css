@@ -1,0 +1,13 @@
+/* Mengatur skala halaman menjadi lebih kecil */
+html {
+  transform: scale(0.9); /* Ubah nilai ini sesuai keinginan Anda */
+  transform-origin: top left; /* Pastikan halaman tetap berlabuh ke kiri atas */
+  width: 111.11%; /* Ubah nilai ini sesuai dengan nilai scale untuk menghindari scroll bar horizontal */
+}
+
+/* Atur ulang margin dan padding untuk memastikan tampilan tetap rapi */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Menghindari scroll bar horizontal */
+}

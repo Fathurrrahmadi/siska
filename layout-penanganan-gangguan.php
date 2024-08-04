@@ -17,6 +17,8 @@ echo 'Role: ' . $_SESSION['role'];
     <link rel="shortcut icon" href="./assets/compiled/svg/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAiCAYAAADRcLDBAAAEs2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMzIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzQiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIzMyIKICAgdGlmZjpJbWFnZUxlbmd0aD0iMzQiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249Ijk2LjAiCiAgIHRpZmY6WVJlc29sdXRpb249Ijk2LjAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJwcm9kdWNlZCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWZmaW5pdHkgRGVzaWduZXIgMS4xMC4xIgogICAgICBzdEV2dDp3aGVuPSIyMDIyLTAzLTMxVDEwOjUwOjIzKzAyOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz5V57uAAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9maORHo1hYKC9hISNGTWwsRn4VFmOUX5uZZ36oeTOv954kW2WrKLHxa8FfwFZZK0WkZClrYoOe87ypmWTO7dzzud97z+nec8ETzaiaWd4NWtYyIiNhZWZ2TvE946WZSjqoj6mmPjE1HKWkfdxR5sSbgFOr9Ll/rXoxYapQVik8oOqGJTwqPL5i6Q5vCzeo6dii8KlwpyEXFL519LjLLw6nXP5y2IhGBsFTJ6ykijhexGra0ITl5bRqmWU1fx/nJTWJ7PSUxBbxJkwijBBGYYwhBgnRQ7/MIQIE6ZIVJfK7f/MnyUmuKrPOKgZLpEhj0SnqslRPSEyKnpCRYdXp/9++msneoFu9JgwVT7b91ga+LfjetO3PQ9v+PgLvI1xkC/m5A+h7F32zoLXug38dzi4LWnwHzjeg8UGPGbFfySvuSSbh9QRqZ6H+Gqrm3Z7l9zm+h+iafNUV7O5Bu5z3L/wAdthn7QIme0YAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJTSURBVFiF7Zi9axRBGIefEw2IdxFBRQsLWUTBaywSK4ubdSGVIY1Y6HZql8ZKCGIqwX/AYLmCgVQKfiDn7jZeEQMWfsSAHAiKqPiB5mIgELWYOW5vzc3O7niHhT/YZvY37/swM/vOzJbIqVq9uQ04CYwCI8AhYAlYAB4Dc7HnrOSJWcoJcBS4ARzQ2F4BZ2LPmTeNuykHwEWgkQGAet9QfiMZjUSt3hwD7psGTWgs9pwH1hC1enMYeA7sKwDxBqjGnvNdZzKZjqmCAKh+U1kmEwi3IEBbIsugnY5avTkEtIAtFhBrQCX2nLVehqyRqFoCAAwBh3WGLAhbgCRIYYinwLolwLqKUwwi9pxV4KUlxKKKUwxC6ZElRCPLYAJxGfhSEOCz6m8HEXvOB2CyIMSk6m8HoXQTmMkJcA2YNTHm3congOvATo3tE3A29pxbpnFzQSiQPcB55IFmFNgFfEQeahaAGZMpsIJIAZWAHcDX2HN+2cT6r39GxmvC9aPNwH5gO1BOPFuBVWAZue0vA9+A12EgjPadnhCuH1WAE8ivYAQ4ohKaagV4gvxi5oG7YSA2vApsCOH60WngKrA3R9IsvQUuhIGY00K4flQG7gHH/mLytB4C42EgfrQb0mV7us8AAMeBS8mGNMR4nwHamtBB7B4QRNdaS0M8GxDEog7iyoAguvJ0QYSBuAOcAt71Kfl7wA8DcTvZ2KtOlJEr+ByyQtqqhTyHTIeB+ONeqi3brh+VgIN0fohUgWGggizZFTplu12yW8iy/YLOGWMpDMTPXnl+Az9vj2HERYqPAAAAAElFTkSuQmCC" type="image/png">
 
+    <!-- <link rel="stylesheet" href="./assets/compiled/css/resize.css"> -->
+
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <!-- FixedColumns CSS -->
@@ -36,7 +38,7 @@ echo 'Role: ' . $_SESSION['role'];
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-            <a href="index.php"><img src="" alt="" srcset="">SISKA</a>
+            <a href="dashboard.php"><alt="" srcset="">SISKA</a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -77,7 +79,7 @@ echo 'Role: ' . $_SESSION['role'];
 
             <li
                 class="sidebar-item  ">
-                <a href="index.php" class='sidebar-link'>
+                <a href="dashboard.php" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
@@ -228,7 +230,7 @@ echo 'Role: ' . $_SESSION['role'];
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Penanganan Gangguan</li>
                         </ol>
                     </nav>
@@ -253,7 +255,7 @@ echo 'Role: ' . $_SESSION['role'];
                             <input type="hidden" name="table" value="gangguan_frekuensi">
                             <div class="form-group">
                                 <label for="fileInput">Upload CSV/Excel file:</label>
-                                <input type="file" id="fileInput" name="file" class="form-control">
+                                <input type="file" id="fileInput" name="file" class="form-control" accept=".csv, .xlsx, .xls">
                             </div>
                             <button type="submit" class="btn btn-success">Upload</button>
                         </form>
@@ -314,7 +316,7 @@ echo 'Role: ' . $_SESSION['role'];
                                 </div>
                              <div class="modal-body">
                                 <form id="updateForm">
-                                    <input type="hidden" id="update_id" name="id">
+                                 <input type="hidden" name="id" id="update_id">
                                     <div class="form-group">
                                         <label for="update_no_surat_tugas">No Surat Tugas:</label>
                                         <input type="text" class="form-control" id="update_no_surat_tugas" name="no_surat_tugas" required>
@@ -365,7 +367,8 @@ echo 'Role: ' . $_SESSION['role'];
                                     </div>
                                 </form>
                                 </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer">  
+
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         <button type="submit" form="updateForm" class="btn btn-primary">Save Changes</button>
                                     </div>
@@ -392,7 +395,7 @@ echo 'Role: ' . $_SESSION['role'];
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
-            <p>2023 &copy; Mazer</p>
+            <p>2024 &copy; Balmon</p>
         </div>
       
     </div>
@@ -400,16 +403,16 @@ echo 'Role: ' . $_SESSION['role'];
 
 
 <!-- <script src="assets/static/js/pages/datatables.js"></script>  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<!-- <script src="assets/extensions/jquery/jquery.min.js"></script> -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    
 <script src="assets/compiled/js/app.js"></script>
     
 <script src="assets/static/js/components/dark.js"></script>
 <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <!-- jQuery -->
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- <script src="assets/extensions/jquery/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- DataTables JS -->
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <!-- FixedColumns JS -->
@@ -418,262 +421,269 @@ echo 'Role: ' . $_SESSION['role'];
 
     
 <script>
- $(document).ready(function() {
-            var userRole = ''; // Variabel untuk menyimpan role pengguna
+$(document).ready(function() {
+    var userRole = ''; // Variabel untuk menyimpan role pengguna
 
-            var table = $('#tablePG').DataTable({
-                processing: true,
-                serverSide: false,
-                ajax: {
-                    url: "connection/crud_pg.php",
-                    type: "GET",
-                    dataType: "JSON",
-                    data: { action: "read" },
-                    dataSrc: function (json) {
-                        if (!json.success) {
-                            console.error('Error fetching data:', json.message);
-                            alert('Error fetching data: ' + json.message);
-                            return [];
-                        }
-                        userRole = json.role; // Menyimpan role pengguna
-
-                        // Tampilkan role pengguna di console dan alert/toast
-                        console.log('User role:', userRole);
-                        // alert('User role: ' + userRole);
-
-                        if (userRole === 'admin') {
-                            $('#btnAddData , #btnIEport').show();
-                            table.column('.action-column').visible(true); // Tampilkan kolom actions untuk admin
-                        } else if (userRole === 'user') {
-                            $('#btnAddData , #btnIEport').show();
-                            table.column('.action-column').visible(false); // Sembunyikan kolom actions untuk user
-                        } else  {
-                            $('#btnAddData , #btnIEport').hide();
-                            table.column('.action-column').visible(false); // Sembunyikan kolom actions untuk guest
-                        }
-                        return json.data;
-                    },
-                    error: handleAjaxError
-                },
-                scrollX: true,
-                scrollCollapse: true,
-                fixedColumns: {
-                    leftColumns: 1,
-                    rightColumns: userRole === 'admin' ? 1 : 0
-                },
-                responsive: true,
-                autoWidth: true,
-                columnDefs: [
-                    { width: "650px", targets: 10 },
-                    { width: "220px", targets: 3 },
-                    { width: "180px", targets: 5 },
-                    { width: "250px", targets: 8 },
-                    { width: "250px", targets: 9 },
-                    { width: "150px", targets: 2 },
-                    { 
-                        targets: -1, // Kolom terakhir (Actions)
-                        visible:  userRole === 'admin', // Hanya tampilkan jika userRole adalah 'admin'
-                        width: "80px"
-                    }
-                ],
-                pageLength: 10,
-                pagingType: "simple",
-                columns: [
-                    { data: "id" },
-                    { data: "no_surat_tugas" },
-                    { data: "tanggal_tugas" },
-                    { data: "pihak_pelapor" },
-                    { data: "pihak_pengganggu" },
-                    { data: "frekuensi_terukur" },
-                    { data: "latitude" },
-                    { data: "longitude" },
-                    { data: "alamat" },
-                    { data: "sumber_gangguan" },
-                    { data: "tindakan" },
-                    { data: "keterangan" },
-                    { data: "tanggal_penanganan_gangguan" },
-                    {
-                        data: null,
-                        render: function (data, type, row) {
-                            var buttons = '';
-                            if (userRole === 'admin') {
-                                buttons += '<button class="btn btn-primary btn-sm btn-update" data-id="' + row.id + '">Update</button> ';
-                                buttons += '<button class="btn btn-danger btn-sm btn-delete" data-id="' + row.id + '">Delete</button>';
-                            }
-                            return buttons;
-                        },
-                        targets: -1 // Kolom terakhir (Actions)
-                    }
-                ],
-                language: {
-                    processing: "Sedang memproses...",
-                    lengthMenu: "Tampilkan _MENU_ data",
-                    zeroRecords: "Tidak ditemukan data yang sesuai",
-                    info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
-                    infoEmpty: "Menampilkan 0 sampai 0 dari 0 data",
-                    infoFiltered: "(disaring dari _MAX_ data keseluruhan)",
-                    search: "Cari:",
-                    paginate: {
-                        first: "Pertama",
-                        previous: "Sebelumnya",
-                        next: "Selanjutnya",
-                        last: "Terakhir"
-                    }
+    var table = $('#tablePG').DataTable({
+        processing: true,
+        serverSide: false,
+        ajax: {
+            url: "connection/crud_pg.php",
+            type: "GET",
+            dataType: "JSON",
+            data: { action: "read" },
+            dataSrc: function (json) {
+                if (!json.success) {
+                    console.error('Error fetching data:', json.message);
+                    alert('Error fetching data: ' + json.message);
+                    return [];
                 }
-            });
+                userRole = json.role; // Menyimpan role pengguna
 
-            $('#btnIEport').on('click', function(e) {
-                e.preventDefault();
-                $('#importExportModal').modal('show');
-            });
+                // Tampilkan role pengguna di console dan alert/toast
+                console.log('User role:', userRole);
+                // alert('User role: ' + userRole);
 
-               // Upload form submission
-               $('#uploadForm').submit(function(e) {
-                e.preventDefault();
-                var formData = new FormData(this);
-                $.ajax({
-                    url: 'connection/crud_pg.php',
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
-                        alert(response.message);
-                        if (response.success) {
-                            // Reload the table data if needed
-                            table.ajax.reload();
-                            $('#importExportModal').modal('hide');
-                        }
-                    },
-                    error: function() {
-                        alert('File upload failed');
-                    }
-                });
-            });
-
-            // Export button
-            $('#exportButton').on('click', function() {
-                var table = 'gangguan_frekuensi'; // Change to your table name
-                window.location.href = 'connection/crud_pg.php?action=export&table=' + table;
-            });
-        
-        
-            function handleAjaxError(xhr, textStatus, error) {
-                console.error('Error fetching data:', textStatus, error);
-                alert('Error fetching data: ' + error);
+                if (userRole === 'admin') {
+                    $('#btnAddData , #btnIEport').show();
+                    table.column('.action-column').visible(true); // Tampilkan kolom actions untuk admin
+                } else if (userRole === 'user') {
+                    $('#btnAddData , #btnIEport').show();
+                    table.column('.action-column').visible(false); // Sembunyikan kolom actions untuk user
+                } else {
+                    $('#btnAddData , #btnIEport').hide();
+                    table.column('.action-column').visible(false); // Sembunyikan kolom actions untuk guest
+                }
+                return json.data;
+            },
+            error: handleAjaxError
+        },
+        scrollX: true,
+        scrollCollapse: true,
+        fixedColumns: {
+            leftColumns: 1,
+            rightColumns: userRole === 'admin' ? 1 : 0
+        },
+        responsive: true,
+        autoWidth: true,
+        columnDefs: [
+            { width: "650px", targets: 10 },
+            { width: "220px", targets: 3 },
+            { width: "180px", targets: 5 },
+            { width: "250px", targets: 8 },
+            { width: "250px", targets: 9 },
+            { width: "150px", targets: 2 },
+            { 
+                targets: -1, // Kolom terakhir (Actions)
+                visible:  userRole === 'admin', // Hanya tampilkan jika userRole adalah 'admin'
+                width: "80px"
             }
-
-            // Create data
-            $('#formAdd').submit(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    url: 'connection/crud_pg.php',
-                    type: 'POST',
-                    data: $(this).serialize() + '&action=create',
-                    success: function(response) {
-                        if (!response.success) {
-                            console.error('Error creating data:', response.message);
-                            alert('Error creating data: ' + response.message);
-                        } else {
-                            alert(response.message);
-                            table.ajax.reload();
-                            
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error creating data:', error);
-                        alert('Terjadi kesalahan saat menambah data.');
+        ],
+        pageLength: 10,
+        pagingType: "simple",
+        columns: [
+            { data: "id" },
+            { data: "no_surat_tugas" },
+            { data: "tanggal_tugas" },
+            { data: "pihak_pelapor" },
+            { data: "pihak_pengganggu" },
+            { data: "frekuensi_terukur" },
+            { data: "latitude" },
+            { data: "longitude" },
+            { data: "alamat" },
+            { data: "sumber_gangguan" },
+            { data: "tindakan" },
+            { data: "keterangan" },
+            { data: "tanggal_penanganan_gangguan" },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    var buttons = '';
+                    if (userRole === 'admin') {
+                        buttons += '<button class="btn btn-primary btn-sm btn-update" data-id="' + row.id + '">Update</button> ';
+                        buttons += '<button class="btn btn-danger btn-sm btn-delete" data-id="' + row.id + '">Delete</button>';
                     }
-                });
-            });
+                    return buttons;
+                },
+                targets: -1 // Kolom terakhir (Actions)
+            }
+        ],
+        language: {
+            processing: "Sedang memproses...",
+            lengthMenu: "Tampilkan _MENU_ data",
+            zeroRecords: "Tidak ditemukan data yang sesuai",
+            info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+            infoEmpty: "Menampilkan 0 sampai 0 dari 0 data",
+            infoFiltered: "(disaring dari _MAX_ data keseluruhan)",
+            search: "Cari:",
+            paginate: {
+                first: "Pertama",
+                previous: "Sebelumnya",
+                next: "Selanjutnya",
+                last: "Terakhir"
+            }
+        }
+    });
 
-            // Open update modal and populate data
-            $(document).on('click', '.btn-update', function() {
-                var id = $(this).data('id');
-                $.ajax({
-                    url: 'connection/crud_pg.php',
-                    type: 'GET',
-                    data: { action: 'read', id: id },
-                    success: function(response) {
-                        if (!response.success) {
-                            console.error('Error fetching data for update:', response.message);
-                            alert('Error fetching data for update: ' + response.message);
-                        } else {
-                            var data = response.data;
-                            $('#update_id').val(data.id);
-                            $('#update_no_surat_tugas').val(data.no_surat_tugas);
-                            $('#update_tanggal_tugas').val(data.tanggal_tugas);
-                            $('#update_pihak_pelapor').val(data.pihak_pelapor);
-                            $('#update_pihak_pengganggu').val(data.pihak_pengganggu);
-                            $('#update_latitude').val(data.latitude);
-                            $('#update_frekuensi_terukur').val(data.frekuensi_terukur);
-                            $('#update_longitude').val(data.longitude);
-                            $('#update_alamat').val(data.alamat);
-                            $('#update_tanggal_penanganan_gangguan').val(data.tanggal_penanganan_gangguan);
-                            $('#update_sumber_gangguan').val(data.sumber_gangguan);
-                            $('#update_keterangan').val(data.keterangan);
-                            $('#updateModal').modal('show');
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error fetching data for update:', error);
-                        alert('Terjadi kesalahan saat mengambil data.');
-                    }
-                });
-            });
+    $('#btnIEport').on('click', function(e) {
+        e.preventDefault();
+        $('#importExportModal').modal('show');
+    });
 
-            // Update data
-            $('#updateForm').submit(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    url: 'connection/crud_pg.php',
-                    type: 'POST',
-                    data: $(this).serialize() + '&action=update',
-                    success: function(response) {
-                        if (!response.success) {
-                            console.error('Error updating data:', response.message);
-                            alert('Error updating data: ' + response.message);
-                        } else {
-                            alert(response.message);
-                            table.ajax.reload();
-                            $('#updateModal').modal('hide');
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error updating data:', error);
-                        alert('Terjadi kesalahan saat mengupdate data.');
-                    }
-                });
-            });
-
-            // Delete data
-            $(document).on('click', '.btn-delete', function() {
-                var id = $(this).data('id');
-                if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
-                    $.ajax({
-                        url: 'connection/crud_pg.php',
-                        type: 'POST',
-                        data: { action: 'delete', id: id },
-                        success: function(response) {
-                            if (!response.success) {
-                                console.error('Error deleting data:', response.message);
-                                alert('Error deleting data: ' + response.message);
-                            } else {
-                                alert(response.message);
-                                table.ajax.reload();
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('Error deleting data:', error);
-                            alert('Terjadi kesalahan saat menghapus data.');
-                        }
-                    });
+    // Upload form submission
+    $('#uploadForm').submit(function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        $.ajax({
+            url: 'connection/crud_pg.php',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                alert(response.message);
+                if (response.success) {
+                    table.ajax.reload();
+                    $('#importExportModal').modal('hide');
                 }
-            });
-            $('.modal').on('click', '.close', function() {
-            $(this).closest('.modal').modal('hide');
+            },
+            error: function() {
+                alert('File upload failed');
+            }
         });
     });
+
+    // Export button
+    $('#exportButton').on('click', function() {
+        var table = 'gangguan_frekuensi'; // Change to your table name
+        window.location.href = 'connection/crud_pg.php?action=export&table=' + table;
+    });
+
+    function handleAjaxError(xhr, textStatus, error) {
+        console.error('Error fetching data:', textStatus, error);
+        alert('Error fetching data: ' + error);
+    }
+
+    $('#formAdd').submit(function(e) {
+        e.preventDefault(); // Prevent the default form submit behavior
+        $.ajax({
+            url: 'connection/crud_pg.php',
+            type: 'POST',
+            data: $(this).serialize() + '&action=create',
+            dataType: 'json',
+            success: function(response) {
+                console.log('Create response:', response); // Debugging line
+                if (!response.success) {
+                    console.error('Error creating data:', response.message);
+                    alert('Error creating data: ' + response.message);
+                } else {
+                    alert(response.message);
+                    console.log('Redirecting to layout-penanganan-gangguan.php'); // Debugging line
+                    // Redirect to the desired page
+                    window.location.href = 'layout-penanganan-gangguan.php';
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error creating data:', error);
+                console.log('XHR:', xhr.responseText); // Debugging line
+                alert('Terjadi kesalahan saat menambah data.');
+            }
+        });
+    });
+    $(document).on('click', '.btn-update', function() {
+        var id = $(this).data('id');
+        $.ajax({
+            url: 'connection/crud_pg.php',
+            type: 'GET',
+            data: { action: 'read', id: id },
+            success: function(response) {
+                if (!response.success) {
+                    console.error('Error fetching data for update:', response.message);
+                    alert('Error fetching data for update: ' + response.message);
+                } else {
+                    var data = response.data;
+                    $('#update_id').val(data.id);
+                    $('#update_no_surat_tugas').val(data.no_surat_tugas);
+                    $('#update_tanggal_tugas').val(data.tanggal_tugas);
+                    $('#update_pihak_pelapor').val(data.pihak_pelapor);
+                    $('#update_pihak_pengganggu').val(data.pihak_pengganggu);
+                    $('#update_latitude').val(data.latitude);
+                    $('#update_frekuensi_terukur').val(data.frekuensi_terukur);
+                    $('#update_longitude').val(data.longitude);
+                    $('#update_alamat').val(data.alamat);
+                    $('#update_tanggal_penanganan_gangguan').val(data.tanggal_penanganan_gangguan);
+                    $('#update_sumber_gangguan').val(data.sumber_gangguan);
+                    $('#update_tindakan').val(data.tindakan);
+                    $('#update_keterangan').val(data.keterangan);
+                    $('#updateModal').modal('show');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching data for update:', error);
+                alert('Terjadi kesalahan saat mengambil data.');
+            }
+        });
+    });
+
+    // Update data
+    $('#updateForm').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: 'connection/crud_pg.php',
+            type: 'POST',
+            data: $(this).serialize() + '&action=update',
+            dataType: 'json',
+            success: function(response) {
+                console.log('Update response:', response);
+                if (!response.success) {
+                    console.error('Error updating data:', response.message);
+                    alert('Error updating data: ' + response.message);
+                } else {
+                    alert(response.message);
+                    $('#updateModal').modal('hide'); // Hide the modal on success
+                    window.location.href = 'layout-penanganan-gangguan.php';
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error updating data:', error);
+                console.log('XHR:', xhr.responseText);
+                alert('Terjadi kesalahan saat mengupdate data.');
+            }
+        });
+    });
+
+    // Delete data
+    $(document).on('click', '.btn-delete', function() {
+        var id = $(this).data('id');
+        if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+            $.ajax({
+                url: 'connection/crud_pg.php',
+                type: 'POST',
+                data: { action: 'delete', id: id },
+                success: function(response) {
+                    if (!response.success) {
+                        console.error('Error deleting data:', response.message);
+                        alert('Error deleting data: ' + response.message);
+                    } else {
+                        alert(response.message);
+                        table.ajax.reload();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error deleting data:', error);
+                    alert('Terjadi kesalahan saat menghapus data.');
+                }
+            });
+                }
+            });
+    });
+
+        // Close modal on button click
+    $('.modal').on('click', '.close', function() {
+            $(this).closest('.modal').modal('hide');
+    });
+   
+
 </script>
 </body>
 </html>

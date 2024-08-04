@@ -17,20 +17,20 @@ if (isset($_POST['kirim'])) {
         $loginSuccessful = $user->login($username, $password, $keepLoggedIn);
         if ($loginSuccessful) {
             $_SESSION['username'] = $username;  // Simpan username dalam sesi
-            header("location: ../index.php");
+            header("location: ../dashboard.php");
             exit;
         } else {
             $error = $user->getLastError();
-            header("location: ../auth-login.html?error=" . urlencode($error));
+            header("location: ../index.php?error=" . urlencode($error));
             exit;
         }
     } catch (PDOException $e) {
         error_log("Login PDO error: " . $e->getMessage());
-        header("location: ../auth-login.html?error=" . urlencode("Database error. Please try again later."));
+        header("location: ../index.php?error=" . urlencode("Database error. Please try again later."));
         exit;
     } catch (Exception $e) {
         error_log("Login general error: " . $e->getMessage());
-        header("location: ../auth-login.html?error=" . urlencode("An unexpected error occurred. Please try again later."));
+        header("location: ../index.php?error=" . urlencode("An unexpected error occurred. Please try again later."));
         exit;
     }
 }

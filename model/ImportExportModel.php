@@ -1,15 +1,16 @@
 <?php
+
 require '/Applications/XAMPP/xamppfiles/htdocs/dtest/vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Shared\Date as SharedDate;
 
 class ImportExportModel {
     private $pdo;
-
-    public function __construct($pdo) {
+    private $tableModel;
+     public function __construct($pdo) {
         $this->pdo = $pdo;
+        $this->tableModel = new TableModel($pdo);
     }
 
     public function importData($tableName, $filePath, $fileType, $headerMapping, $forceImport = false) {
@@ -20,15 +21,12 @@ class ImportExportModel {
                 $file = fopen($filePath, 'r');
                 $headers = fgetcsv($file);
                 $mappedHeaders = $this->mapHeaders($headers, $headerMapping);
+                $dateFields = $this->detectDateFields($mappedHeaders);
+                $textFields = $this->detectTextFields($mappedHeaders);
                 while ($row = fgetcsv($file)) {
                     $data = $this->prepareData($row, $mappedHeaders);
-                    if ($this->validateData($data)) {
-                        $this->insertOrUpdateData($tableName, $data, $forceImport);
-                        $importSuccess[] = $data['no_surat_tugas'];
-                    } else {
-                        $importErrors[] = "Invalid data found in row: " . json_encode($row);
-                        error_log("Invalid data: " . json_encode($data));
-                    }
+                    $data = $this->convertDataFormats($data, $dateFields, $textFields);
+                    $importSuccess[] = $data;
                 }
                 fclose($file);
             } elseif ($fileType === 'xlsx' || $fileType === 'xls') {
@@ -36,6 +34,8 @@ class ImportExportModel {
                 $worksheet = $spreadsheet->getActiveSheet();
                 $headers = $worksheet->toArray()[0];
                 $mappedHeaders = $this->mapHeaders($headers, $headerMapping);
+                $dateFields = $this->detectDateFields($mappedHeaders);
+                $textFields = $this->detectTextFields($mappedHeaders);
                 foreach ($worksheet->getRowIterator() as $rowIndex => $row) {
                     if ($rowIndex == 1) continue; // Skip header row
                     $cellIterator = $row->getCellIterator();
@@ -45,24 +45,23 @@ class ImportExportModel {
                         $rowData[] = $cell->getValue();
                     }
                     $data = $this->prepareData($rowData, $mappedHeaders);
-                    if ($this->validateData($data)) {
-                        $this->insertOrUpdateData($tableName, $data, $forceImport);
-                        $importSuccess[] = $data['no_surat_tugas'];
-                    } else {
-                        $importErrors[] = "Invalid data found in row: " . json_encode($rowData);
-                        error_log("Invalid data: " . json_encode($data));
-                    }
+                    $data = $this->convertDataFormats($data, $dateFields, $textFields);
+                    $importSuccess[] = $data;
                 }
             } else {
                 throw new Exception('Unsupported file type');
             }
-            if (!empty($importErrors)) {
-                return "Import completed with errors: " . implode("; ", $importErrors);
-            }
-            return "Import successful: " . implode(", ", $importSuccess);
+            return [
+                'success' => true,
+                'data' => $importSuccess,
+                'errors' => $importErrors
+            ];
         } catch (Exception $e) {
             error_log('Import error: ' . $e->getMessage());
-            return "Import failed: " . $e->getMessage();
+            return [
+                'success' => false,
+                'message' => "Import failed: " . $e->getMessage()
+            ];
         }
     }
 
@@ -85,75 +84,66 @@ class ImportExportModel {
                 $data[$mappedHeaders[$index]] = $value;
             }
         }
-        return $this->convertDataFormats($data);
+        return $data;
     }
 
-    private function convertDataFormats($data) {
+    private function convertDataFormats($data, $dateFields, $textFields) {
         // Convert date formats
-        if (isset($data['tanggal_tugas']) && !empty($data['tanggal_tugas'])) {
-            $data['tanggal_tugas'] = date('Y-m-d', strtotime($data['tanggal_tugas']));
+        foreach ($dateFields as $dateField) {
+            if (isset($data[$dateField]) && !empty($data[$dateField])) {
+                $data[$dateField] = date('Y-m-d', strtotime($data[$dateField]));
+            }
         }
-        if (isset($data['tanggal_penanganan_gangguan']) && !empty($data['tanggal_penanganan_gangguan'])) {
-            $data['tanggal_penanganan_gangguan'] = date('Y-m-d', strtotime($data['tanggal_penanganan_gangguan']));
+        // Ensure text fields are treated as text
+        foreach ($textFields as $textField) {
+            if (isset($data[$textField])) {
+                $data[$textField] = (string)$data[$textField];
+            }
         }
         return $data;
     }
 
-    private function validateData($data) {
-        $requiredFields = ['no_surat_tugas', 'pihak_pelapor', 'frekuensi_terukur', 'latitude', 'longitude', 'alamat'];
-        foreach ($requiredFields as $field) {
-            if (empty($data[$field])) {
-                error_log("Validation error: Missing required field '$field' in data: " . json_encode($data));
-                return false;
-            }
-            if (strlen($data[$field]) > 255 && $field != 'latitude' && $field != 'longitude') {
-                error_log("Validation error: '$field' exceeds length limit in data: " . json_encode($data));
-                return false;
+    public function detectDateFields($mappedHeaders) {
+        $dateFields = [];
+        foreach ($mappedHeaders as $header) {
+            if (strpos($header, 'tanggal') !== false) {
+                $dateFields[] = $header;
             }
         }
-
-        // Validasi latitude dan longitude
-        if (strlen($data['latitude']) > 20 || strlen($data['longitude']) > 20) {
-            error_log("Validation error: 'latitude' or 'longitude' exceeds length limit in data: " . json_encode($data));
-            return false;
-        }
-
-        return true;
+        return $dateFields;
     }
 
-    private function insertOrUpdateData($tableName, $data, $forceImport) {
-        $sql = "SELECT COUNT(*) FROM $tableName WHERE no_surat_tugas = :no_surat_tugas";
+    private function detectTextFields($mappedHeaders) {
+        // Define which columns should be treated as text
+        $textFields = ['no_surat_tugas', 'frekuensi_terukur', 'latitude', 'longitude'];
+        $detectedTextFields = [];
+        foreach ($mappedHeaders as $header) {
+            if (in_array($header, $textFields)) {
+                $detectedTextFields[] = $header;
+            }
+        }
+        return $detectedTextFields;
+    }
+
+    public function insertOrUpdateData($tableName, $data, $uniqueKeys, $forceImport) {
+        $whereClause = implode(" AND ", array_map(function($key) {
+            return "$key = :$key";
+        }, $uniqueKeys));
+        
+        $sql = "SELECT COUNT(*) FROM $tableName WHERE $whereClause";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(['no_surat_tugas' => $data['no_surat_tugas']]);
+        $stmt->execute(array_intersect_key($data, array_flip($uniqueKeys)));
+        
         if ($stmt->fetchColumn() > 0) {
             if ($forceImport) {
-                $this->updateData($tableName, $data['no_surat_tugas'], $data);
-                echo "Duplicate found and updated for No Surat Tugas " . $data['no_surat_tugas'] . "<br>";
+                $this->tableModel->updateData($tableName, array_intersect_key($data, array_flip($uniqueKeys)), $data);
+                echo "Duplicate found and updated for unique keys: " . json_encode(array_intersect_key($data, array_flip($uniqueKeys))) . "<br>";
             } else {
-                echo "Duplicate found for No Surat Tugas " . $data['no_surat_tugas'] . "<br>";
+                echo "Duplicate found for unique keys: " . json_encode(array_intersect_key($data, array_flip($uniqueKeys))) . "<br>";
             }
         } else {
-            $this->createData($tableName, $data);
+            $this->tableModel->createData($tableName, $data);
         }
-    }
-
-    private function createData($tableName, $data) {
-        $columns = implode(", ", array_keys($data));
-        $placeholders = implode(", ", array_fill(0, count($data), '?'));
-        $sql = "INSERT INTO $tableName ($columns) VALUES ($placeholders)";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(array_values($data));
-    }
-
-    private function updateData($tableName, $id, $data) {
-        $setClause = implode(", ", array_map(function($key) {
-            return "$key = ?";
-        }, array_keys($data)));
-        $sql = "UPDATE $tableName SET $setClause WHERE no_surat_tugas = ?";
-        $stmt = $this->pdo->prepare($sql);
-        $values = array_values($data);
-        $values[] = $id;
-        $stmt->execute($values);
     }
 
     public function exportData($tableName) {

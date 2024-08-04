@@ -1,41 +1,44 @@
-body{background-color:var(--bs-body-bg)}#auth{height:100vh;overflow-x:hidden}#auth #auth-right{height:100%;background:url(./png/4853433.png),linear-gradient(90deg,#2d499d,#3f5491)}#auth #auth-left{padding:5rem}#auth #auth-left .auth-title{font-size:4rem;margin-bottom:1rem}#auth #auth-left .auth-subtitle{font-size:1.7rem;line-height:2.5rem;color:#a8aebb}#auth #auth-left .auth-logo{margin-bottom:7rem}#auth #auth-left .auth-logo img{height:2rem}@media screen and (max-width: 1399.9px){#auth #auth-left{padding:3rem}}@media screen and (max-width: 767px){#auth #auth-left{padding:5rem}}@media screen and (max-width: 576px){#auth #auth-left{padding:5rem 3rem}}html[data-bs-theme=dark] #auth-right{background:url(./png/4853433.png),linear-gradient(90deg,#2d499d,#3f5491)}
-/* General Container Styles */
-/* General Container Styles */
+body {
+    background-color: var(--bs-body-bg);
+    height: 100vh;
+    overflow: hidden; /* Disable scrolling */
+}
+
+#auth {
+    height: 100vh;
+    overflow: hidden; /* Disable scrolling */
+}
+
 #auth-left {
-    position: relative; /* Necessary for absolute positioning of children */
-    padding: 20px; /* Add padding for visual spacing */
+    padding: 4rem;
 }
-
-/* Logo Styling */
-#auth-left .logo-balmon {
-    position: absolute;
-    max-width: fit-content;
-    top: 20px;  /* Adjust as needed */
-    left: 20px; /* Adjust as needed */
-    width: 150px; /* Reduced width to make it smaller */
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* Title and Subtitle Styling */
 #auth-left .auth-title {
-    margin-top: 0; /* Remove default margin-top */
-    text-align: center; /* Center the title */
+    margin-top: 4rem; /* Adjust this value to move the title up */
 }
 
-#auth-left .auth-subtitle{
-    font-family: "Open Sans", sans-serif;
-    font-size: 14px; 
-    text-align: center;
-    color: #4e565d; /* Adjust color as needed */
+#auth-right {
+    height: 100%;
+    background: url(./assets/compiled/jpg/balmon.jpeg) no-repeat center center;
+    background-size: cover;
 }
 
-#auth-left .auth-2{
-    font-size: 14px; 
+.footer {
     text-align: center;
-    font-family: "Open Sans", sans-serif;
+    margin-top: 20px;
+}
+
+.footer-text {
     color: #6c757d;
-    text-align: center; /* Center the subtitle */
-    margin-bottom: 20px; /* Add spacing below the subtitle */
 }
 
-#auth #auth-right{height:100%;background:url(./png/4853433.png),linear-gradient(90deg,#2d499d,#3f5491)}#auth #auth-left{padding:5rem}#auth #auth-left .auth-title{font-size:4rem;margin-bottom:1rem}#auth #auth-left .auth-subtitle{font-size:1.7rem;line-height:2.5rem;color:#a8aebb}#auth #auth-left .auth-logo{margin-bottom:7rem}#auth #auth-left .auth-logo img{height:2rem}@media screen and (max-width: 1399.9px){#auth #auth-left{padding:3rem}}@media screen and (max-width: 767px){#auth #auth-left{padding:5rem}}@media screen and (max-width: 576px){#auth #auth-left{padding:5rem 3rem}}html[data-bs-theme=dark] #auth-right{background:url(./png/4853433.png),linear-gradient(90deg,#2d499d,#3f5491)}
+/* Centering the login box and other elements */
+#auth-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form-group, .btn, .form-check {
+    margin-bottom: 15px;
+}

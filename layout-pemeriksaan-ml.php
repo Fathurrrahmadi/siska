@@ -1,19 +1,29 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data Penanganan Gangguan</title>
-    
-    
-    
+    <title>Table Microwave Link</title>
+
+
+
+
     <link rel="shortcut icon" href="./assets/compiled/svg/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAiCAYAAADRcLDBAAAEs2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMzIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzQiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIzMyIKICAgdGlmZjpJbWFnZUxlbmd0aD0iMzQiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249Ijk2LjAiCiAgIHRpZmY6WVJlc29sdXRpb249Ijk2LjAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJwcm9kdWNlZCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWZmaW5pdHkgRGVzaWduZXIgMS4xMC4xIgogICAgICBzdEV2dDp3aGVuPSIyMDIyLTAzLTMxVDEwOjUwOjIzKzAyOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz5V57uAAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9maORHo1hYKC9hISNGTWwsRn4VFmOUX5uZZ36oeTOv954kW2WrKLHxa8FfwFZZK0WkZClrYoOe87ypmWTO7dzzud97z+nec8ETzaiaWd4NWtYyIiNhZWZ2TvE946WZSjqoj6mmPjE1HKWkfdxR5sSbgFOr9Ll/rXoxYapQVik8oOqGJTwqPL5i6Q5vCzeo6dii8KlwpyEXFL519LjLLw6nXP5y2IhGBsFTJ6ykijhexGra0ITl5bRqmWU1fx/nJTWJ7PSUxBbxJkwijBBGYYwhBgnRQ7/MIQIE6ZIVJfK7f/MnyUmuKrPOKgZLpEhj0SnqslRPSEyKnpCRYdXp/9++msneoFu9JgwVT7b91ga+LfjetO3PQ9v+PgLvI1xkC/m5A+h7F32zoLXug38dzi4LWnwHzjeg8UGPGbFfySvuSSbh9QRqZ6H+Gqrm3Z7l9zm+h+iafNUV7O5Bu5z3L/wAdthn7QIme0YAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJTSURBVFiF7Zi9axRBGIefEw2IdxFBRQsLWUTBaywSK4ubdSGVIY1Y6HZql8ZKCGIqwX/AYLmCgVQKfiDn7jZeEQMWfsSAHAiKqPiB5mIgELWYOW5vzc3O7niHhT/YZvY37/swM/vOzJbIqVq9uQ04CYwCI8AhYAlYAB4Dc7HnrOSJWcoJcBS4ARzQ2F4BZ2LPmTeNuykHwEWgkQGAet9QfiMZjUSt3hwD7psGTWgs9pwH1hC1enMYeA7sKwDxBqjGnvNdZzKZjqmCAKh+U1kmEwi3IEBbIsugnY5avTkEtIAtFhBrQCX2nLVehqyRqFoCAAwBh3WGLAhbgCRIYYinwLolwLqKUwwi9pxV4KUlxKKKUwxC6ZElRCPLYAJxGfhSEOCz6m8HEXvOB2CyIMSk6m8HoXQTmMkJcA2YNTHm3congOvATo3tE3A29pxbpnFzQSiQPcB55IFmFNgFfEQeahaAGZMpsIJIAZWAHcDX2HN+2cT6r39GxmvC9aPNwH5gO1BOPFuBVWAZue0vA9+A12EgjPadnhCuH1WAE8ivYAQ4ohKaagV4gvxi5oG7YSA2vApsCOH60WngKrA3R9IsvQUuhIGY00K4flQG7gHH/mLytB4C42EgfrQb0mV7us8AAMeBS8mGNMR4nwHamtBB7B4QRNdaS0M8GxDEog7iyoAguvJ0QYSBuAOcAt71Kfl7wA8DcTvZ2KtOlJEr+ByyQtqqhTyHTIeB+ONeqi3brh+VgIN0fohUgWGggizZFTplu12yW8iy/YLOGWMpDMTPXnl+Az9vj2HERYqPAAAAAElFTkSuQmCC" type="image/png">
-    
-<link rel="stylesheet" href="assets/extensions/flatpickr/flatpickr.min.css">
+
+    <!-- <link rel="stylesheet" href="./assets/compiled/css/resize.css"> -->
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <!-- FixedColumns CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.1.0/css/fixedColumns.dataTables.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/compiled/css/app.css">
   <link rel="stylesheet" href="./assets/compiled/css/app-dark.css">
+
 </head>
 
 <body>
@@ -24,7 +34,7 @@
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-                <a href="dashboard.php"><img src="" alt="" srcset="">SISKA</a>
+            <a href="dashboard.php"><alt="" srcset="">SISKA</a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -97,7 +107,7 @@
             </li>
 
             <li
-                class="sidebar-item  has-sub">
+                class="sidebar-item ">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-collection-fill"></i>
                     <span>Pemanfaatan perangkat SMFR</span>
@@ -106,21 +116,21 @@
             </li>
 
             <li
-                class="sidebar-item  has-sub">
+                class="sidebar-item active has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-grid-1x2-fill"></i>
                     <span>Pemeriksaan Stasiun Radio</span>
                 </a>
 
-                <ul class="submenu ">
+                <ul class="submenu active ">
 
-                    <li class="submenu-item  ">
+                    <li class="submenu-item active ">
                         <a href="layout-default.html" class="submenu-link">Microwave Link</a>
 
                     </li>
 
                     <li class="submenu-item  ">
-                        <a href="layout-vertical-1-column.html" class="submenu-link">Pengukuran Stasiun Siaran Radio FM</a>
+                        <a href="layout-table-pemeriksaan-radio-fm.php" class="submenu-link">Pengukuran Stasiun Siaran Radio FM</a>
 
                     </li>
 
@@ -148,12 +158,12 @@
 
 
             <li
-            class="sidebar-item active ">
+            class="sidebar-item  ">
             <a href="layout-penanganan-gangguan.php" class='sidebar-link'>
                 <i class="bi bi-file-earmark-medical-fill"></i>
                 <span>Penanganan Ganguan</span>
             </a>
-            </li>
+        </li>
 
 
             <li
@@ -166,7 +176,7 @@
             <ul class="submenu  ">
 
                 <li class="submenu-item  ">
-                    <a href="layout-table-SFR-modified.php" class="submenu-link">SFR spektur frekuensi radio</a>
+                    <a href="layout-table-SFR-modified.php" class="submenu-link">SFR</a>
 
                 </li>
 
@@ -184,15 +194,16 @@
             </ul>
 
 
-             </li>
+        </li>
 
-              <li
-                class="sidebar-item  ">
-                <a href="layout-form-input.html" class='sidebar-link'>
-                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                    <span>Input Data</span>
-                </a>
-            </li>
+        <li
+        class="sidebar-item  ">
+        <a href="layout-form-input.html" class='sidebar-link'>
+            <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+            <span>Input Data</span>
+        </a>
+        </li>
+
 
         </ul>
     </div>
@@ -204,168 +215,167 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-            
+
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Tambah Data Gangguan Frekuensi</h3>
-                <p class="text-subtitle text-muted">Sesuaikan Table baru tambah datanya </p>
+                <h3>Penemeriksaan Microwave Link</h3>
+                <p class="text-subtitle text-muted">List Microwave Link</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="layout-penanganan-gangguan.php">Penanganan Ganguan</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tambah Data PG</li>
+                        <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Penemeriksaan Microwave Link</li>
                     </ol>
                 </nav>
             </div>
         </div>
     </div>
-    <section id="multiple-column-form">
-        <div class="container-fluid">
-            <div class="row match-height">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Formulir Data Gangguan Frekuensi</h4>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-body">
-                            <form class="form" action="connection/crud_pg.php" method="post" id="formAdd">
-                                    <input type="hidden" name="action" value="create">
-                                    <div class="row">
-                                        <!-- No Surat Tugas -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="no_surat_tugas">No Surat Tugas:</label>
-                                                <input type="text" id="no_surat_tugas" class="form-control" name="no_surat_tugas" required>
-                                            </div>
-                                        </div>
-                                        <!-- Tanggal Tugas -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="tanggal_tugas">Tanggal Tugas:</label>
-                                                <input type="date" id="tanggal_tugas" class="form-control" name="tanggal_tugas" required>
-                                            </div>
-                                        </div>
-                                        <!-- Pihak Pelapor -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="pihak_pelapor">Pihak Pelapor:</label>
-                                                <input type="text" id="pihak_pelapor" class="form-control" name="pihak_pelapor" required>
-                                            </div>
-                                        </div>
-                                        <!-- Pihak Pengganggu -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="pihak_pengganggu">Pihak Pengganggu:</label>
-                                                <input type="text" id="pihak_pengganggu" class="form-control" name="pihak_pengganggu" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="latitude">Latitude:</label>
-                                                <input type="text" id="latitude" class="form-control" name="latitude" required>
-                                            </div>
-                                        </div>
-                                        <!-- Frekuensi Terukur -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="frekuensi_terukur">Frekuensi Terukur (MHz):</label>
-                                                <input type="text" id="frekuensi_terukur" class="form-control" name="frekuensi_terukur" placeholder="00.000" required>
-                                            </div>
-                                        </div>
-                                        <!-- Latitude -->
-                                       
-                                        <!-- Longitude -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="longitude">Longitude:</label>
-                                                <input type="text" id="longitude" class="form-control" name="longitude" required>
-                                            </div>
-                                        </div>
-                                        <!-- Alamat -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="alamat">Alamat:</label>
-                                                <input type="text" id="alamat" class="form-control" name="alamat" required>
-                                            </div>
-                                        </div>
-                                  
-                                      
-                                        <div class="col-md-6 col-12">
-                                            <label for="tanggal_penanganan_gangguan">Tanggal Penanganan Gangguan:</label>
-                                            <input type="date" id="tanggal_penanganan_gangguan" class="form-control" name="tanggal_penanganan_gangguan" required>
-                                        </div>
-                                        <!-- tindakan -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="tindakan">Tindakan:</label>
-                                                <input type="text" id="tindakan" class="form-control" name="tindakan" required>
-                                            </div>
-                                        </div>
-                                        <!-- Sumber Gangguan -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="sumber_gangguan">Sumber Gangguan:</label>
-                                                <textarea id="sumber_gangguan" class="form-control" name="sumber_gangguan" rows="3" required></textarea>
-                                            
-                                            </div>
-                                        </div>
-                                     
-                                        <!-- Keterangan -->
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="keterangan">Keterangan:</label>
-                                                <textarea id="keterangan" class="form-control" name="keterangan" rows="3" required></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="col-12 d-flex justify-content-end">
-                                                <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                                                <button type="submit" id="btnAdd" class="btn btn-primary me-1 mb-1">Submit</button>
-                                            </div>
-        
-                                        </div>
-                                    </div>
-                               
-                              
-                            </form>
+
+    <!-- Basic Tables start -->
+    <section class="section">
+        <div class="card">
+            <div class="card-header">
+            <a href="inputPML.html" class="btn btn-primary">Tambah Data Baru</a>
+            <a href="#" id="btnIEport"  class="btn btn-primary">Import & Export</a>
+
+
+            </div>
+            <div class="card-body">
+
+
+                <div class="datatable_wrapper">
+
+                    <table class="table table-striped " id="pmlTable" widht="100%">
+                    </div>
+                        <thead>
+                            <tr>
+                                    <th>ID ML</th>
+                                    <th>TANGGAL PEMERIKSAAN</th>
+                                    <th>CLIENT NAME</th>
+
+                                    <th>NO ISR</th>
+                                    <th>STN NAME</th>
+                                    <th>STASIUN LAWAN</th>
+                                    <th>Tx (MHz)</th>
+                                    <th>Rx (MHz)</th>
+                                    <th>BW (MHz)</th>
+                                    <th>MERK TIPE PERANGKAT</th>
+
+                                    <th>STATUS</th>
+                                    <th>KOTA KABUPATEN</th>
+                                    <th>ACTIONS</th>
+                            </tr>
+                         </thead>
+                    </table>
+                    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="updateModalLabel">Update Data</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <div class="modal-body">
+                                <form id="updateForm">
+                                    <input type="hidden" name="idsfr" id="update-idsfr" value="">
+                                    Nama Pengguna: <input type="text" name="namaPengguna" id="update-namaPengguna"><br>
+                                    Frekuensi (MHz): <input type="number" name="frekuensi" id="update-frekuensi" step="any" min = "0"><br>
+                                    Dinas: <input type="text" name="dinas" id="update-dinas"><br>
+                                    Subservice: <input type="text" name="subservice" id="update-subservice"><br>
+                                    Lokasi: <input type="text" name="lokasi" id="update-lokasi"><br>
+                                    Provinsi: <input type="text" name="provinsi" id="update-provinsi"><br>
+                                    Kab/Kota: <input type="text" name="kabKota" id="update-kabKota"><br>
+                                    Jenis Pelanggaran: <select name="jenisPelanggaran" id="update-jenisPelanggaran">
+                                        <option value="ILEGAL">ILEGAL</option>
+                                        <option value="LEGAL">LEGAL</option>
+                                    </select><br>
+                                    Tindakan: <input type="text" name="tindakan" id="update-tindakan"><br>
+                                    Status: <input type="text" name="status" id="update-status"><br>
+                                    Tgl Operasi Stasiun: <input type="date" name="tglOperasiStasiun" id="update-tglOperasiStasiun"><br>
+                                    No ISR Setelah Penindakan: <input type="text" name="noISRSetelahPenindakan" id="update-noISRSetelahPenindakan"><br>
+                                    No Surat Penindakan: <input type="text" name="noSuratPenindakan" id="update-noSuratPenindakan"><br>
+                                    Tanggal Tindakan: <input type="date" name="tanggalTindakan" id="u pdate-tanggalTindakan"><br>
+                                    Keterangan: <textarea name="keterangan" id="update-keterangan"></textarea><br>
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </form>
                             </div>
-                        
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
+              
             </div>
         </div>
+
+
     </section>
-  
-    
+
+
 </div>
 
-            <footer>
-    <div class="footer clearfix mb-0 text-muted">
-        <div class="float-end">
-            <p>2024 &copy; Balmon</p>
-    
-    </div>
-</footer>
-        </div>
-    </div>
-    <script src="assets/static/js/components/dark.js"></script>
-    <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
-<script src="assets/extensions/flatpickr/flatpickr.min.js"></script>
-    
-    
-    <script src="assets/compiled/js/app.js"></script>
-    
+  
 
+<!-- <script src="assets/static/js/pages/datatables.js"></script>  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- <script src="assets/extensions/jquery/jquery.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script src="assets/compiled/js/app.js"></script>
     
-</body>
+<script src="assets/static/js/components/dark.js"></script>
+<script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<!-- jQuery -->
 
-</html>
+
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<!-- FixedColumns JS -->
+<script src="https://cdn.datatables.net/fixedcolumns/4.1.0/js/dataTables.fixedColumns.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+ $(document).ready(function() {
+            $('#pmlTable').DataTable({
+                ajax: {
+                    url: "http://localhost/dtest/connection/crud_pml.php?action=read",
+                    dataSrc: 'data',
+                    
+                },autoWidth: false,
+                scrollX: true,
+                columns: [
+                    { data: "ID_ML" },
+                    { data: "TANGGAL_PEMERIKSAAN" },
+                    { data: "CLIENT_NAME" },
+                    { data: "DI_NO_ISR" },
+                    { data: "DI_STN_NAME" },
+                    { data: "DI_STASIUN_LAWAN" },
+                    { data: "DI_TX" },
+                    { data: "DI_RX" },
+                    { data: "DI_BW" },
+
+                    { data: "DI_MERK_TYPE_PERANGKAT" },
+                    { data: "STATUS" },
+                    { data: "KOTA_KABUPATEN" },
+                    {
+                data: null,
+                render: function (data, type, row) {
+                    var buttons = '';
+                  
+                        buttons += '<button class="btn btn-primary btn-sm btn-update" data-id="' + row.id + '">Update</button> ';
+                        buttons += '<button class="btn btn-danger btn-sm btn-delete" data-id="' + row.id + '">Delete</button>';
+                    
+                    return buttons;
+                },
+                targets: -1 // Kolom terakhir (Actions)
+            }
+                    
+                ]
+            });
+        });
+    </script>
+
+</script>

@@ -3,7 +3,15 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-class TableModel {
+require '/Applications/XAMPP/xamppfiles/htdocs/dtest/vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx as XlsxWriter;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx as XlsxReader;
+
+// use PhpOffice\PhpSpreadsheet\IOFactory;
+
+class TableModel { 
     private $pdo;
 
     public function __construct($pdo) {
@@ -93,15 +101,83 @@ class TableModel {
         }
     }
 
-    public function fetchChartData($tableName) {
+    public function fetchChartData($tableName, $fields, $groupByField) {
         try {
-            $stmt = $this->pdo->prepare("SELECT * FROM $tableName");
+            $stmt = $this->pdo->prepare("SELECT $fields FROM $tableName GROUP BY $groupByField");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             error_log("Database error in fetchChartData: " . $e->getMessage());
             throw new Exception("Error fetching data: " . $e->getMessage());
         }
+    }
+
+    public function exportData($tableName) {
+        $stmt = $this->pdo->prepare("SELECT * FROM $tableName");
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (empty($data)) {
+            throw new Exception("No data found to export.");
+        }
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(array_keys($data[0]), null, 'A1');
+        $sheet->fromArray($data, null, 'A2');
+        $writer = new XlsxWriter($spreadsheet);
+        $fileName = "$tableName.xlsx";
+
+        if (!headers_sent()) {
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header("Content-Disposition: attachment; filename=\"$fileName\"");
+            $writer->save("php://output");
+            exit;
+        } else {
+            throw new Exception("Headers already sent, cannot export the file.");
+        }
+    }
+    
+     // Fungsi untuk mengonversi format tanggal
+     private function convertDate($date) {
+        return date('Y-m-d', strtotime($date));
+    }
+    
+    // Fungsi untuk mengimpor data dari file Excel
+    public function importData($filePath, $tableName, $columns, $dateColumns = []) {
+        $reader = new XlsxReader();
+        $spreadsheet = $reader->load($filePath);
+        $sheetData = $spreadsheet->getActiveSheet()->toArray();
+
+        // Membuat query insert yang dinamis berdasarkan tabel dan kolom
+        $columnNames = implode(", ", $columns);
+        $placeholders = implode(", ", array_fill(0, count($columns), "?"));
+        $query = "INSERT INTO $tableName ($columnNames) VALUES ($placeholders)";
+        $stmt = $this->pdo->prepare($query);
+
+        if (!$stmt) {
+            die("Error preparing statement: " . $this->pdo->errorInfo()[2]);
+        }
+
+        $insertedRows = 0;
+        foreach ($sheetData as $index => $row) {
+            if ($index === 0) continue; // Lewati header
+
+            // Mengonversi tanggal jika ada
+            foreach ($dateColumns as $colIndex) {
+                if (isset($row[$colIndex])) {
+                    $row[$colIndex] = $this->convertDate($row[$colIndex]);
+                }
+            }
+
+            if ($stmt->execute($row)) {
+                $insertedRows += $stmt->rowCount();
+            } else {
+                echo "Error inserting data: " . $stmt->errorInfo()[2] . "<br>";
+            }
+        }
+
+        return $insertedRows;
     }
 }
 ?>
